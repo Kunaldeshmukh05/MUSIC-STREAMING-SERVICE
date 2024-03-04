@@ -1,0 +1,33 @@
+.sidebar {
+    margin-left: 0;
+    width: 200px;
+    height: auto;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.sidebar-top {
+    margin-bottom: 20px;
+}
+
+.sidebar-button {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: none;
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+.sidebar-box {
+    background-color: #fff;
+    padding: 10px;
+    width: 200px;
+    height: 200px;
+    margin-top: 25%;
+}
+
+.sidebar-box h2 {
+    margin-bottom: 10px;
+}

@@ -1,0 +1,55 @@
+.main {
+    background-color: black;
+    max-width: 100%;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.icon {
+    font-size: 24px;
+    color: green;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-left: 200px;
+}
+
+.search-input {
+
+    padding: 8px;
+    margin-right: 8px;
+    border-radius: 5px;
+    border: none;
+}
+
+
+
+.signup-btn,
+.login-btn {
+    background-color: transparent;
+
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.signup-btn:hover,
+.login-btn:hover {
+    color: green;
+}
+
+.login-btn {
+    margin-left: 250px;
+}
+
+.signup-btn {
+    margin-left: 30px;
+}

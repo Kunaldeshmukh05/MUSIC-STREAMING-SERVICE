@@ -1,0 +1,86 @@
+body,
+html {
+    margin-top: 1%;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #191414;
+}
+
+.container {
+    width: 80%;
+    /* Adjust container width */
+    max-width: 400px;
+    /* Adjust max-width as needed */
+    box-sizing: border-box;
+    padding: 20px;
+    /* Add padding for better spacing */
+}
+
+.kuna {
+    background-color: #1DB954;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-field {
+    margin-bottom: 15px;
+}
+
+.input-field label {
+    color: black;
+    /* Change label color to white */
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.checkbox-field {
+    margin-bottom: 15px;
+}
+
+.checkbox-field input {
+    margin-right: 10px;
+}
+
+.checkbox-field label {
+    font-size: 14px;
+    color: #fff;
+    /* Change label color to white */
+}
+
+.signup-btn {
+    background-color: #fff;
+    /* Change button background color */
+    font-weight: 700;
+    color: #1DB954;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    display: block;
+}
+
+.signup-btn:hover {
+    background-color: #191414;
+    color: #fff;
+    /* Change button text color on hover */
+}
