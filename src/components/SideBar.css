@@ -1,33 +1,30 @@
+/* SideBar.css */
 .sidebar {
-    margin-left: 0;
-    width: 200px;
-    height: auto;
-    background-color: #f0f0f0;
-    padding: 20px;
+    margin-top: 20px;
 }
 
-.sidebar-top {
-    margin-bottom: 20px;
+.sidebar-buttons {
+    display: flex;
 }
 
 .sidebar-button {
-    display: block;
-    width: 100%;
-    margin-bottom: 10px;
+    flex: 1;
+    /* Each button takes up equal width */
     padding: 10px;
+    margin: 0 5px;
+    /* Add some margin between buttons */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Transparent black background */
+    color: #1f1919;
+    /* Smoke white color */
     border: none;
-    background-color: #ccc;
     cursor: pointer;
+    font-weight: bold;
+    /* Make text bold */
 }
 
-.sidebar-box {
-    background-color: #fff;
-    padding: 10px;
-    width: 200px;
-    height: 200px;
-    margin-top: 25%;
-}
-
-.sidebar-box h2 {
-    margin-bottom: 10px;
+/* Add hover effect */
+.sidebar-button:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Darker transparent background */
 }

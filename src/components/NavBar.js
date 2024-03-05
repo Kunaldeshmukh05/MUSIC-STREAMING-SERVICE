@@ -8,7 +8,7 @@ const NavBar = () => {
     <div className="main">
       <nav className="navbar navbar-fixed-top">
         <div className="navbar-container">
-          <div className="nav-item">
+          <div className="nav-home">
             <FontAwesomeIcon icon={faHome} className="icon" />
           </div>
           <div className="nav-item search-container">
@@ -16,10 +16,18 @@ const NavBar = () => {
             <FontAwesomeIcon icon={faSearch} className="icon" />
           </div>
           <div className="nav-item">
-            <button className="login-btn">Login</button>
+            <button className="login-btn">
+              <nav>Login</nav>
+            </button>
           </div>
           <div className="nav-item">
-            <button className="signup-btn">Sign Up</button>
+            <button className="signup-btn">SignUp</button>
+          </div>
+          <div className="nav-profile">
+            <button className="profile-btn">
+              {" "}
+              <FontAwesomeIcon icon={faUser} />
+            </button>
           </div>
         </div>
       </nav>

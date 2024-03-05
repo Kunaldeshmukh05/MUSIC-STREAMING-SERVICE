@@ -1,4 +1,5 @@
 import React from "react";
+import "./assets/top50.jpg";
 import "./MainBar.css";
 const MainBar = () => {
   return (
@@ -50,7 +51,7 @@ const MainBar = () => {
         </div>
         <div className="box4 box">
           <div className="box-content">
-            <p></p>
+            <p>PARTY SONGS</p>
             <div className="box-img"></div>
           </div>
         </div>
