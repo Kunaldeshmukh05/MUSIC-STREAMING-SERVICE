@@ -9,7 +9,16 @@
     align-items: center;
     /* Center content vertically */
     position: sticky;
-    border-radius: 20px;
+
+}
+
+
+.Log-img {
+    height: 65px;
+    width: 70px;
+    background-size: cover;
+    margin-left: 40px;
+    border-radius: 5px;
 }
 
 .nav-profile {
@@ -31,13 +40,14 @@
 
 .icon {
     font-size: 24px;
-    color: green;
+    color: #1DB954;
 }
 
 .search-container {
     display: flex;
     align-items: center;
     margin-left: 200px;
+
     /* Correct margin value */
 }
 
@@ -59,15 +69,35 @@
 
 .signup-btn:hover,
 .login-btn:hover {
-    color: green;
+    color: #1DB954;
 }
 
 .login-btn {
-    margin-left: 400px;
+
+    margin-left: 300px;
     /* Adjust margin value */
 }
 
 .signup-btn {
+    color: green;
     margin-left: 20px;
     /* Adjust margin value */
+}
+
+.Login a {
+    color: green;
+    font-size: larger;
+    text-decoration: none;
+}
+
+.Sign a {
+    color: green;
+    font-size: larger;
+    text-decoration: none;
+}
+
+.Profile a {
+    color: green;
+    font-size: larger;
+    text-decoration: none;
 }
