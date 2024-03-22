@@ -1,13 +1,16 @@
 .Footer {
     height: 85px;
     width: 100vw;
-    background-color: rgb(227, 160, 160);
+    margin-top: 15px;
+    background-color: #171212;
+    border-radius: 5%;
+    margin-top: 10px;
     display: flex;
 }
 
 .playbar {
     display: flex;
-    background-image: url('');
+
     background-size: contain;
 
     background-repeat: no-repeat;

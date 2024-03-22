@@ -7,47 +7,19 @@
     border-radius: 20px;
     gap: 20px;
     background-color: #3c3737;
-    /* Adjust the gap between boxes */
     padding: 20px;
-}
-
-.new {
-    width: 100%;
-    height: 150px;
-    margin-left: 0px;
-    /* Adjust the height of the image */
-    background-color: #ccc;
-    background-size: cover;
-}
-
-.bollywood {
-    width: 100%;
-    height: 150px;
-    /* Adjust the height of the image */
-    background-color: #ccc;
-    background-size: cover;
-}
-
-.Main-img {
-    width: 100%;
-    height: 150px;
-    /* Adjust the height of the image */
-    background-color: #ccc;
-    background-size: cover;
 }
 
 .box {
     width: calc(25% - 20px);
-    /* Adjust the width of each box */
     background-color: #171212;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    /* Add box shadow */
 }
 
 .box-content {
-    padding: 20px;
+    padding: 10px;
 }
 
 .box-content p {
@@ -59,22 +31,60 @@
 .box-img {
     width: 100%;
     height: 150px;
-    /* Adjust the height of the image */
-    background-color: #ccc;
+
+}
+
+.box1 .box-img {
+    background-image: url('./assets/top50.jpg');
+    background-size: contain;
+    /* This property ensures that the entire image fits within the container */
+    /* Prevents the background image from repeating */
+
+}
+
+.box2 .box-img {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('./assets/region_global_default.jpg');
+}
+
+.box3 .box-img {
+    background-image: url('./assets/Screenshot\ \(33\).png');
     background-size: cover;
-
-    /* Add background color */
 }
 
-/* Adjust box styles based on viewport width */
-@media (max-width: 768px) {
-    .box {
-        width: calc(50% - 20px);
-    }
+.box7 .box-img {
+    background-image: url('./assets//ab67706c0000da84352d38f90224d692ada7c788.jpg');
+    background-size: cover;
 }
 
-@media (max-width: 576px) {
-    .box {
-        width: calc(100% - 20px);
-    }
+.box4 .box-img {
+    background-size: contain;
+
+    background-image: url('./assets/your-top-songs-2023_DEFAULT_en-GB.jpg');
 }
+
+.box6 .box-img {
+    background-size: contain;
+    background-image: url('./assets/ab67616d00001e020acb5a72549287bf33b51b71ab67616d00001e0249079e6945b600abe668cae4ab67616d00001e02707ea5b8023ac77d31756ed4ab67616d00001e02d567bc615d8d891d112c8a35.jpg');
+
+
+}
+
+.box5 .box-img {
+    background-size: contain;
+    background-image: url('./assets/db5aae3bd30023a9e378f17fd2e8527e_500x500.jpg');
+
+
+}
+
+.box8 .box-img {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('./assets/istockphoto-896391820-612x612.jpg');
+
+
+}
+
+/* Add more classes and background images as needed */

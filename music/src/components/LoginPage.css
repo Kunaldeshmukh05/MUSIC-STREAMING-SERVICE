@@ -10,6 +10,7 @@ html {
 }
 
 .container {
+    background-color: black;
     width: 80%;
     /* Adjust container width */
     max-width: 400px;
@@ -56,20 +57,24 @@ h1 {
 
 .checkbox-field {
     margin-bottom: 15px;
+
 }
 
 .checkbox-field input {
     margin-right: 10px;
+
 }
 
 .checkbox-field label {
     font-size: 14px;
     color: #fff;
+    color: black;
+    font-weight: ;
     /* Change label color to white */
 }
 
-.signup-btn {
-    background-color: black;
+.SignUpButton {
+
     /* Change button background color */
     font-weight: 700;
     color: #1DB954;
@@ -82,9 +87,9 @@ h1 {
     display: block;
 }
 
-.signup-btn:hover {
+.SignUpButton:hover {
     background-color: #191414;
-    color: #fff;
+    color: #1DB954;
     /* Change button text color on hover */
 }
 

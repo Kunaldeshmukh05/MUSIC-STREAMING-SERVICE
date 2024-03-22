@@ -1,0 +1,8 @@
+.songs-container {
+    max-height: 80vh;
+    /* Adjust the maximum height as needed */
+    overflow-y: auto;
+    /* Enable vertical scrolling */
+    padding: 20px;
+    /* Add padding to the container */
+}

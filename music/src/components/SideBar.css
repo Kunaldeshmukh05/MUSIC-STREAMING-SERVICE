@@ -1,30 +1,104 @@
-/* SideBar.css */
+.sidebar-container {
+    display: flex;
+    height: 100%;
+    background-color: #3c3737;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-right: 15px;
+    height: auto;
+    margin-left: 20px;
+
+}
+
 .sidebar {
-    margin-top: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .sidebar-buttons {
+    margin-top: 20px;
+    width: 200px;
+    margin-left: 10px;
+    justify-content: center;
     display: flex;
+    flex-direction: column;
 }
 
-.sidebar-button {
-    flex: 1;
-    /* Each button takes up equal width */
+.sidebar-button-group {
+
+    flex-direction: column;
+}
+
+.sidebar-button2 {
     padding: 10px;
-    margin: 0 5px;
-    /* Add some margin between buttons */
-    background-color: rgba(0, 0, 0, 0.4);
-    /* Transparent black background */
-    color: #1f1919;
-    /* Smoke white color */
+    margin: 5px 0;
+    margin-left: 15px;
+    border-radius: 10px;
+    color: green;
+    background-color: #171212;
+    width: 85px;
+
     border: none;
     cursor: pointer;
     font-weight: bold;
-    /* Make text bold */
 }
 
-/* Add hover effect */
+.sidebar-button1 {
+    padding: 10px;
+    margin-left: 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+    color: green;
+    background-color: #171212;
+    width: 85px;
+
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.sidebar-button a {
+    color: green;
+    text-decoration: none;
+}
+
+.sidebar-button {
+    padding: 10px;
+    margin: 5px 0;
+    margin-left: 10px;
+    border-radius: 10px;
+    border: none;
+    color: green;
+    background-color: #171212;
+    cursor: pointer;
+    font-weight: bold;
+}
+
 .sidebar-button:hover {
     background-color: rgba(0, 0, 0, 0.6);
-    /* Darker transparent background */
+}
+
+.song-info-box {
+    padding: 20px;
+    color: aliceblue;
+    border-radius: 10px;
+    background-color: #171212;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.song-image {
+    height: 150px;
+    margin-top: 10px;
+    width: 150px;
+    background-size: cover;
+    background-image: url('./assets/ab67616d00001e020acb5a72549287bf33b51b71ab67616d00001e0249079e6945b600abe668cae4ab67616d00001e02707ea5b8023ac77d31756ed4ab67616d00001e02d567bc615d8d891d112c8a35.jpg');
+}
+
+.song-details {
+    margin-top: 10px;
+    color: aliceblue;
 }

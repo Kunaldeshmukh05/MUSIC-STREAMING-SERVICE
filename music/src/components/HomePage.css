@@ -1,3 +1,18 @@
 .Home {
     background-color: #5a5252;
 }
+
+/* Homepage.css */
+
+.homepage-container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar-wrapper {
+    width: auto;
+}
+
+.main-bar-wrapper {
+    width: auto;
+}
