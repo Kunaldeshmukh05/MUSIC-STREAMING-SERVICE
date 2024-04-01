@@ -22,7 +22,7 @@ const RecentSongs = () => {
   return (
     <div className="container">
       <h1>
-        <Link to="/recent">Recent Songs</Link>
+        <Link to="/recent">Songs</Link>
       </h1>
       <ul>
         {recentSongs.map((song) => (

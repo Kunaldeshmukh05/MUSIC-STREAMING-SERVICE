@@ -11,12 +11,18 @@ import Sidebar from "./components/SideBar";
 import Lib from "./components/Lib";
 import Top50 from "./components/top50Hindi";
 import RecentSongs from "./components/RecentSongs";
+import GlobalSongs from "./components/globalSongs";
+import IndiaTopSongs from "./components/IndiaTopSongs";
+import MarathiSongs from "./components/MarathiSongs";
+import BollywoodPartySongs from "./components/BollywoodPartySongs";
+import GlobalPartySongs from "./components/GlobalPartySongs";
 
 const App = () => {
   return (
     <>
       <BrowserRouter>
         <Routes>
+          <Route path="/MainBar/globalSongs" element={<GlobalSongs />}></Route>
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/NavBar" element={<NavBar />}></Route>
           <Route path="/LoginPage" element={<LoginPage />}></Route>
@@ -28,6 +34,23 @@ const App = () => {
           <Route path="/SideBar" element={<Sidebar />}></Route>
           <Route path="/SideBar/Lib" element={<Lib />}></Route>
           <Route path="/Footer" element={<Footer />}></Route>
+          <Route
+            path="/MainBar/GlobalPartySongs"
+            element={<GlobalPartySongs />}
+          ></Route>
+
+          <Route
+            path="/MainBar/BollywoodPartySongs"
+            element={<BollywoodPartySongs />}
+          ></Route>
+          <Route
+            path="/MainBar/MarathiSongs"
+            element={<MarathiSongs />}
+          ></Route>
+          <Route
+            path="/MainBar/IndiaTopSongs"
+            element={<IndiaTopSongs />}
+          ></Route>
           <Route path="/SideBar/LikedSongs" element={<LikedSongs />}></Route>
           <Route path="/SideBar/RecentSongs" element={<RecentSongs />}></Route>
         </Routes>

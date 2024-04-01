@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
 import "./SignUpPage.css";
-import { Link } from "react-router-dom";
 import axios from "axios";
 
 const SignUpPage = () => {
@@ -37,34 +37,19 @@ const SignUpPage = () => {
       alert("User signed up successfully!");
     } catch (error) {
       // Handle errors
-      if (error.response) {
-        // The request was made and the server responded with a status code that falls out of the range of 2xx
-        console.error("Server responded with an error:", error.response.data);
-        // Display error message to the user
-        alert(error.response.data.error);
-      } else if (error.request) {
-        // The request was made but no response was received
-        console.error("No response received from the server:", error.request);
-        // Display a generic error message to the user
-        alert("Error: No response received from the server");
-      } else {
-        // Something happened in setting up the request that triggered an Error
-        console.error("Error setting up the request:", error.message);
-        // Display a generic error message to the user
-        alert("Error: " + error.message);
-      }
+      console.error("Error signing up user:", error);
+      // Display error message to the user
+      alert("Error: " + error.message);
     }
   };
 
   return (
     <div>
-      <br />
-      <br />
-      <br />
+      {" "}
       <div className="container">
         <div className="kuna">
-          <h1>Sign up to Beats</h1>
           <br />
+          <h3>Sign Up Here</h3>
           <form onSubmit={handleSubmit}>
             <div className="input-field">
               <label htmlFor="email">Enter Email</label>
@@ -131,7 +116,7 @@ const SignUpPage = () => {
               />
               <label htmlFor="remember-me">Remember me</label>
             </div>
-            <button type="submit" className="signup-btn">
+            <button type="submit" className="signup">
               Sign Up
             </button>
           </form>
@@ -142,21 +127,3 @@ const SignUpPage = () => {
 };
 
 export default SignUpPage;
-
-/* 
-if(password !== confirmPassword){
-  setError('Password do not match');
-  return;
-} 
-
-try{
-  const auth = getAuth();
-
-  await createUserWithEmailAndPassword
-}
-
-
-import{useNavigate} from 'react-router-dom';
-
-
-*/

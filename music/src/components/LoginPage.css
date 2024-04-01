@@ -1,105 +1,50 @@
-body,
-html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
+
+.cont {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #191414;
-}
-
-.container {
-    background-color: black;
-    width: 80%;
-    /* Adjust container width */
-    max-width: 400px;
-    /* Adjust max-width as needed */
-    box-sizing: border-box;
-    padding: 20px;
-    /* Add padding for better spacing */
-    align-items: center;
-}
-
-.kuna {
+    height: 60vh;
     background-color: #1DB954;
+    /* Green background color */
     border-radius: 8px;
-    padding: 30px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-    font-size: 24px;
+.Kunal {
     text-align: center;
-    margin-bottom: 20px;
-    color: #fff;
-    /* Change heading color to white */
+
 }
 
 .input-field {
-    margin-bottom: 15px;
-}
-
-.input-field label {
-    color: black;
-    /* Change label color to white */
-    font-weight: 600;
-    font-size: 14px;
-    margin-bottom: 5px;
-}
-
-.input-field input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.checkbox-field {
-    margin-bottom: 15px;
-
-}
-
-.checkbox-field input {
-    margin-right: 10px;
-
-}
-
-.checkbox-field label {
-    font-size: 14px;
-    color: #fff;
-    color: black;
-    font-weight: ;
-    /* Change label color to white */
+    margin: 15px 15px 15px 15px;
 }
 
 .SignUpButton {
-
-    /* Change button background color */
-    font-weight: 700;
-    color: #1DB954;
+    background-color: #9ee9a1;
+    /* Green background color */
+    color: white;
+    width: 120px;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-bottom: 10px;
     font-size: 16px;
-    width: 100%;
-    display: block;
 }
 
 .SignUpButton:hover {
-    background-color: #191414;
-    color: #1DB954;
-    /* Change button text color on hover */
+    background-color: #2b332b;
+    /* Darker green color on hover */
+}
+
+.checkbox-field {
+    margin-bottom: 15px;
 }
 
 .new-user a {
-    color: #fff;
-    /* Change link color to white */
+    color: blue;
     text-decoration: none;
 }
 
 .new-user a:hover {
     text-decoration: underline;
-    /* Add underline on hover */
 }

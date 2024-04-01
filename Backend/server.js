@@ -1,7 +1,8 @@
 const express = require("express");
+const axios = require("axios");
 const app = express();
 const { MongoClient } = require("mongodb");
-const PORT = 3000;
+const PORT = 8000;
 const client = new MongoClient("mongodb://127.0.0.1:27017");
 const cors = require("cors");
 app.use(cors());
@@ -17,10 +18,94 @@ async function connectToMongoDB() {
 }
 connectToMongoDB();
 
+// Endpoint to get a song by title
+app.get("/songs/title/:songTitle", async (req, res) => {
+  const songTitle = req.params.songTitle;
+  try {
+    const db = client.db("db");
+    const collection = db.collection("HindiSongs");
+    const song = await collection.findOne({ title: songTitle });
+    if (song) {
+      res.json(song);
+    } else {
+      res.status(404).json({ error: "Song not found" });
+    }
+  } catch (error) {
+    console.error("Error fetching song by title:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 app.get("/songs", async (req, res) => {
   try {
     const db = client.db("db");
     const collection = db.collection("HindiSongs");
+    const songs = await collection.find({}).toArray();
+    res.json(songs);
+  } catch (error) {
+    console.error("Error fetching songs:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+//Marathi songs
+
+app.get("/marathisongs", async (req, res) => {
+  try {
+    const db = client.db("db");
+    const collection = db.collection("MarathiSongs");
+    const songs = await collection.find({}).toArray();
+    res.json(songs);
+  } catch (error) {
+    console.error("Error fetching songs:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+//Bollywood party songs
+
+app.get("/bollywoodpartysongs", async (req, res) => {
+  try {
+    const db = client.db("db");
+    const collection = db.collection("BollywoodParty");
+    const songs = await collection.find({}).toArray();
+    res.json(songs);
+  } catch (error) {
+    console.error("Error fetching songs:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+//Global Party Songs
+
+app.get("/globalpartysongs", async (req, res) => {
+  try {
+    const db = client.db("db");
+    const collection = db.collection("GlobalParty");
+    const songs = await collection.find({}).toArray();
+    res.json(songs);
+  } catch (error) {
+    console.error("Error fetching songs:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+//yop 50 india songs
+app.get("/indiatopsongs", async (req, res) => {
+  try {
+    const db = client.db("db");
+    const collection = db.collection("TopIndia");
+    const songs = await collection.find({}).toArray();
+    res.json(songs);
+  } catch (error) {
+    console.error("Error fetching songs:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.get("/globalsongs", async (req, res) => {
+  try {
+    const db = client.db("db");
+    const collection = db.collection("GlobalSongs");
     const songs = await collection.find({}).toArray();
     res.json(songs);
   } catch (error) {
@@ -186,6 +271,56 @@ app.post("/signup", async (req, res) => {
     }
   } catch (error) {
     console.error("Error signing up user:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.get("/songsTitle", async (req, res) => {
+  try {
+    const db = client.db("db"); // Assuming "db" is your database name
+    const collection = db.collection("HindiSongs");
+    const documents = await collection.find({ Title: "Tum hi ho" }).toArray();
+    res.send(documents);
+  } catch (error) {
+    console.error("Error fetching songs:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+app.get("/globalSongs", async (req, res) => {
+  try {
+    const db = client.db("db");
+    const collection = db.collection("GlobalSongs");
+    const documents = await collection.find({}).toArray();
+    res.send(documents);
+  } catch (error) {
+    console.error("Error while fetching data", error);
+    res.sendStatus(500).send("Internal Server Error");
+  }
+});
+
+/*app.get("/api/search", async (req, res) => {
+  try {
+    const { query } = req.query;
+    const response = await axios.get(
+      `https://api.spotify.com/v1/search?q=${query}&type=track`
+    );
+    res.json(response.data);
+  } catch (error) {
+    console.error("Error searching tracks:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});*/
+
+app.get("/api/search", async (req, res) => {
+  try {
+    const { query } = req.query;
+    const response = await axios.get(
+      `https://api.spotify.com/v1/search?q=${query}&type=track`
+    );
+    res.json(response.data);
+  } catch (error) {
+    console.error("Error searching tracks:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });

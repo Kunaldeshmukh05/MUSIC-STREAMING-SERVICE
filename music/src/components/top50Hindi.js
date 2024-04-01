@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./topHindi.css"; // Import your CSS file
+import "./topHindi.css";
 
 const Top50 = () => {
   const [songs, setSongs] = useState([]);
@@ -23,8 +23,8 @@ const Top50 = () => {
     <div className="songs-container">
       {" "}
       {/* Wrap content in a container */}
-      <h1>Top Songs</h1>
-      <ul>
+      <h1>Hindi Era</h1>
+      <ol>
         {songs.map((song) => (
           <li key={song.id}>
             <h2>{song.title}</h2>
@@ -35,7 +35,7 @@ const Top50 = () => {
             </audio>
           </li>
         ))}
-      </ul>
+      </ol>
     </div>
   );
 };

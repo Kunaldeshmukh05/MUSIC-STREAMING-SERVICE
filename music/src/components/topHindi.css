@@ -1,8 +1,49 @@
 .songs-container {
-    max-height: 80vh;
-    /* Adjust the maximum height as needed */
-    overflow-y: auto;
-    /* Enable vertical scrolling */
+    background-color: #121212;
+    /* Dark background color */
+    color: #fff;
+    /* Text color */
     padding: 20px;
-    /* Add padding to the container */
+    border-radius: 10px;
+}
+
+.songs-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.songs-container ol {
+    list-style: none;
+    padding: 0;
+}
+
+.songs-container li {
+    background-color: #212121;
+    /* Darker background color for each song */
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.songs-container h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.songs-container p {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+audio {
+    width: 100%;
+    margin-top: 10px;
+}
+
+audio::-webkit-media-controls-panel {
+    background-color: #212121;
+    /* Darker background color for audio controls */
+    color: #fff;
+    /* Text color for audio controls */
+    border-radius: 5px;
 }

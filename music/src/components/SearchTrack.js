@@ -1,5 +1,3 @@
-// Main.js
-
 import React, { useState } from "react";
 import axios from "axios";
 
@@ -10,7 +8,7 @@ const Main = () => {
   const handleSearch = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3001/api/search?query=${searchQuery}`
+        `http://localhost:3000/api/search?query=${searchQuery}`
       );
       setSearchResults(response.data.tracks.items);
     } catch (error) {

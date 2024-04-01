@@ -8,7 +8,7 @@ const Sidebar = () => {
       <div className="sidebar" style={{ height: "auto", width: "auto" }}>
         <div className="sidebar-buttons">
           <button className="sidebar-button">
-            <Link to="/SideBar/Lib">Your Library</Link>
+            <Link to="/SideBar/RecentSongs">Library</Link>
           </button>
         </div>
 

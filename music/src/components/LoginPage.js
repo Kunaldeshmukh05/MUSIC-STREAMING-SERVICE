@@ -1,37 +1,3 @@
-/*import React from "react";
-import { Link } from "react-router-dom";
-import "./LoginPage.css";
-
-const LoginPage = () => {
-  return (
-    <div className="container">
-      <div className="kuna">
-        <h1>Login</h1>
-        <div className="input-field">
-          <label htmlFor="email">Enter Email or Phone No</label>
-          <input type="text" id="email" name="email" />
-        </div>
-        <div className="input-field">
-          <label htmlFor="password">Password</label>
-          <input type="password" id="password" name="password" />
-        </div>
-        <div className="checkbox-field">
-          <input type="checkbox" id="remember-me" />
-          <label htmlFor="remember-me">Remember me</label>
-        </div>
-        <button type="submit" className="SignUpButton">
-          Login
-        </button>
-        <br></br>
-        <p className="new-user">
-          New User? <Link to="/LoginPage/SignUpPage">Signup</Link>
-        </p>
-      </div>
-    </div>
-  );
-};
-export default LoginPage;*/
-
 import "./LoginPage.css";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -47,18 +13,17 @@ const LoginPage = () => {
     try {
       const auth = getAuth();
       await signInWithEmailAndPassword(auth, email, password);
-      // If login is successful, navigate to another page
-      navigate("/dashboard");
+      navigate("/dashboard"); // If login is successful, navigate to another page
     } catch (error) {
       setError(error.message);
     }
   };
 
   return (
-    <>
-      <div className="container">
+  
+      <div className="cont">
         <div className="Kunal">
-          <h1>Login</h1>
+          <h3>Login</h3>
           {error && <p className="error">{error}</p>}
           <div className="input-field">
             <input
@@ -94,7 +59,8 @@ const LoginPage = () => {
           </div>
         </div>
       </div>
-    </>
+  
+    
   );
 };
 

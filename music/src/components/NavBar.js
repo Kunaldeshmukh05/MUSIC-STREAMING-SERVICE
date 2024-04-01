@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faSearch, faUser } from "@fortawesome/free-solid-svg-icons";
 import "./NavBar.css";
 
-const NavBar = () => {
+const NavBar = ({ handleSearch }) => {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleInputChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Call the handleSearch function passed from parent component
+    handleSearch(searchQuery);
+  };
+
   return (
     <div className="main">
       <nav className="navbar navbar-fixed-top">
@@ -15,8 +27,18 @@ const NavBar = () => {
           <div className="Log-img"></div>
           <div className="Log-im"></div>
           <div className="nav-item search-container">
-            <input type="text" placeholder="Search" className="search-input" />
-            <FontAwesomeIcon icon={faSearch} className="icon" />
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={handleInputChange}
+                placeholder="Search"
+                className="search-input"
+              />
+              <button type="submit" className="search-btn">
+                <FontAwesomeIcon icon={faSearch} className="icon" />
+              </button>
+            </form>
           </div>
           <div className="nav-item">
             <button className="login-btn">
