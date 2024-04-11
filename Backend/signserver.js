@@ -1,64 +1,43 @@
+// server.js
+
 const express = require("express");
-const { MongoClient } = require("mongodb");
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 
-const app = express(); // Initialize Express app
-const PORT = process.env.PORT || 8000;
-const MONGODB_URI = "mongodb://localhost:27017";
-const DB_NAME = "db";
-const COLLECTION_NAME = "userprofiles";
+const app = express();
+const PORT = process.env.PORT || 3000;
 
-// Middleware to parse JSON bodies
-app.use(express.json());
+// MongoDB connection
+mongoose.connect("mongodb://localhost/db", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
-// Connect to MongoDB
-let db;
+// Define User model
+const User = mongoose.model("User", {
+  username: String,
+  email: String,
+  password: String,
+});
 
-async function connectToMongoDB() {
+// Middleware
+app.use(bodyParser.json());
+
+// Signup route
+app.post("/signup", async (req, res) => {
   try {
-    const client = new MongoClient(MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    await client.connect();
-    console.log("Connected to MongoDB");
-    db = client.db(DB_NAME); // Specify the database name
+    const { username, email, password } = req.body;
+    // Create a new user document
+    const newUser = new User({ username, email, password });
+    // Save user to database
+    await newUser.save();
+    res.status(201).json({ message: "User created successfully" });
   } catch (error) {
-    console.error("Error connecting to MongoDB:", error);
-    process.exit(1);
-  }
-}
-
-// Call the function to connect to MongoDB
-connectToMongoDB();
-
-// Endpoint for user signup
-app.post("/users", async (req, res) => {
-  try {
-    const newUser = req.body;
-
-    // Check if the username or email already exists
-    const existingUser = await db.collection(COLLECTION_NAME).findOne({
-      $or: [{ username: newUser.username }, { email: newUser.email }],
-    });
-
-    if (existingUser) {
-      res.status(400).json({ error: "Username or email already exists" });
-    } else {
-      // Insert the new user into the collection
-      const result = await db.collection(COLLECTION_NAME).insertOne(newUser);
-      const insertedUser = result.ops[0];
-
-      res
-        .status(201)
-        .json({ message: "User signed up successfully", user: insertedUser });
-    }
-  } catch (error) {
-    console.error("Error signing up user:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: "Internal server error" });
   }
 });
 
-// Start the server
+// Start server
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });

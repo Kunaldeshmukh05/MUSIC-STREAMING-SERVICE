@@ -2,12 +2,12 @@ const express = require("express");
 const axios = require("axios");
 const app = express();
 const { MongoClient } = require("mongodb");
-const PORT = 8000;
-const client = new MongoClient("mongodb://127.0.0.1:27017");
+const PORT = 3000;
+const client = new MongoClient("mongodb://127.0.0.1:27017/db");
 const cors = require("cors");
 app.use(cors());
-app.use("./audio", express.static(__dirname + "./audio")); // Changed the path to serve audio files
-
+app.use("/audio", express.static(__dirname + "/audio")); // Changed the path to serve audio files
+const db = client.db("db");
 async function connectToMongoDB() {
   try {
     await client.connect();
@@ -38,17 +38,16 @@ app.get("/songs/title/:songTitle", async (req, res) => {
 
 app.get("/songs", async (req, res) => {
   try {
-    const db = client.db("db");
     const collection = db.collection("HindiSongs");
-    const songs = await collection.find({}).toArray();
+    const songs = await collection.findOne  ({}).toArray();
     res.json(songs);
   } catch (error) {
     console.error("Error fetching songs:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
-//Marathi songs
 
+//Marathi songs
 app.get("/marathisongs", async (req, res) => {
   try {
     const db = client.db("db");
@@ -72,6 +71,34 @@ app.get("/bollywoodpartysongs", async (req, res) => {
   } catch (error) {
     console.error("Error fetching songs:", error);
     res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.post("/signup", async (req, res) => {
+  try {
+    // Ensure req.body is defined and contains name and email properties
+    const newUser = req.body;
+    if (!newUser || !newUser.name || !newUser.email) {
+      return res.status(400).json({ error: "Invalid request body" });
+    }
+
+    const existingUser = await db.collection("userprofiles").findOne({
+      $or: [{ name: newUser.name }, { email: newUser.email }],
+    });
+    if (existingUser) {
+      return res
+        .status(400)
+        .json({ error: "Username or email already exists" });
+    }
+
+    const result = await db.collection("userprofiles").insertOne(newUser);
+    const insertedUser = result.ops[0];
+    return res
+      .status(201)
+      .json({ message: "User signed up successfully", user: insertedUser });
+  } catch (error) {
+    console.error("Error signing up user:", error);
+    return res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
@@ -253,22 +280,8 @@ app.delete("/users/:id", async (req, res) => {
 app.post("/signup", async (req, res) => {
   try {
     const newUser = req.body;
-    // Check if the username or email already exists
-    const existingUser = userprofiles.find(
-      (user) =>
-        user.username === newUser.username || user.email === newUser.email
-    );
-    if (existingUser) {
-      res.status(400).json({ error: "Username or email already exists" });
-    } else {
-      // Generate a unique ID for the new user
-      const newUserId = userprofiles.length + 1;
-      newUser.id = newUserId;
-      userprofiles.push(newUser);
-      res
-        .status(201)
-        .json({ message: "User signed up successfully", user: newUser });
-    }
+    const
+    
   } catch (error) {
     console.error("Error signing up user:", error);
     res.status(500).json({ error: "Internal Server Error" });
@@ -299,18 +312,6 @@ app.get("/globalSongs", async (req, res) => {
   }
 });
 
-/*app.get("/api/search", async (req, res) => {
-  try {
-    const { query } = req.query;
-    const response = await axios.get(
-      `https://api.spotify.com/v1/search?q=${query}&type=track`
-    );
-    res.json(response.data);
-  } catch (error) {
-    console.error("Error searching tracks:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});*/
 
 app.get("/api/search", async (req, res) => {
   try {

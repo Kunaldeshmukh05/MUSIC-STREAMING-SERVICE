@@ -10,8 +10,6 @@ const HomePage = () => {
   return (
     <div className="Home">
       {" "}
-      {}
-      <br></br>
       <NavBar></NavBar>
       <div className="homepage-container">
         <div className="sidebar-wrapper">

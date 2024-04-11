@@ -73,3 +73,6 @@ const NavBar = ({ handleSearch }) => {
 };
 
 export default NavBar;
+
+
+

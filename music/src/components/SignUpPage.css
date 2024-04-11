@@ -1,93 +1,63 @@
-body,
-html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background-color: white;
-    /* Dark grey background color */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.wrap{
+    margin-top: 100px;
 }
 
-.container {
-    width: 100%;
-    max-width: 400px;
-    margin-top: 20px;
-    box-sizing: border-box;
+.suc {
+    margin-top: 200px;
+    width: 350px;
+    margin: auto;
     padding: 20px;
-    background-color: #1DB954;;
-    /* Dark grey background color */
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-}
-
-.kuna {
-    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #87e47f;
 }
 
 h3 {
-    font-size: 24px;
     text-align: center;
-    color: #fff;
-    /* White text color */
     margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: ;
 }
 
-.input-field {
-    margin-bottom: 15px;
-}
-
-.input-field label {
-    color: #fff;
-    /* White label color */
-    font-weight: 600;
-    font-size: 14px;
-    margin-bottom: 5px;
-}
-
-.input-field input {
+input[type="text"],
+input[type="email"],
+input[type="password"] {
     width: 100%;
     padding: 10px;
-    border: 1px solid #fff;
-    /* White border */
-    border-radius: 5px;
-    background-color: transparent;
-    /* Transparent input background */
-    color: #fff;
-    /* White text color */
-}
-
-.checkbox-field {
     margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
-.checkbox-field input {
-    margin-right: 10px;
+input[type="checkbox"] {
+    margin-left: 5px;
+    margin-top: 3px;
+    margin: bottom 3px;;
+    vertical-align: middle;
 }
 
-.checkbox-field label {
-    font-size: 14px;
-    color: #fff;
-}
-
-.signup {
-    background-color: #fff;
-    color: #000;
-    /* Black text color */
-    font-weight: 700;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
+button.special {
     width: 100%;
-    display: block;
+    background-color: #797c7c;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-.signup:hover {
-    background-color: #00ff00;
-    /* Green background color on hover */
-    color: #fff;
-    /* White text color on hover */
+button.special:hover {
+    background-color: #d9dbdb;
+}
+
+button.special:focus {
+    outline: none;
+}
+
+/* Additional Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
 }
