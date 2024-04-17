@@ -1,11 +1,12 @@
 const express = require("express");
-const axios = require("axios");
 const app = express();
 const { MongoClient } = require("mongodb");
 const PORT = 3000;
 const client = new MongoClient("mongodb://127.0.0.1:27017/db");
 const cors = require("cors");
+const bodyParser = require("body-parser");
 app.use(cors());
+app.use(bodyParser.json());
 app.use("/audio", express.static(__dirname + "/audio")); // Changed the path to serve audio files
 const db = client.db("db");
 async function connectToMongoDB() {
@@ -17,6 +18,35 @@ async function connectToMongoDB() {
   }
 }
 connectToMongoDB();
+
+const collectionNames = [
+  "BollywoodParty",
+  "GlobalParty",
+  "HindiSongs",
+  "MarathiSongs",
+  "TopIndia",
+];
+
+app.get("/api/artists", async (req, res) => {
+  try {
+    let artists = [];
+
+    // Iterate over each collection and fetch artist names
+    for (const collectionName of collectionNames) {
+      const collection = client.db("db").collection(collectionName);
+      const distinctArtists = await collection.distinct("artist");
+      artists = [...artists, ...distinctArtists];
+    }
+
+    // Remove duplicate artist names (if any)
+    const uniqueArtists = Array.from(new Set(artists));
+
+    res.json(uniqueArtists);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
 
 // Endpoint to get a song by title
 app.get("/songs/title/:songTitle", async (req, res) => {
@@ -39,7 +69,7 @@ app.get("/songs/title/:songTitle", async (req, res) => {
 app.get("/songs", async (req, res) => {
   try {
     const collection = db.collection("HindiSongs");
-    const songs = await collection.findOne  ({}).toArray();
+    const songs = await collection.find({}).toArray();
     res.json(songs);
   } catch (error) {
     console.error("Error fetching songs:", error);
@@ -73,36 +103,6 @@ app.get("/bollywoodpartysongs", async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
-
-app.post("/signup", async (req, res) => {
-  try {
-    // Ensure req.body is defined and contains name and email properties
-    const newUser = req.body;
-    if (!newUser || !newUser.name || !newUser.email) {
-      return res.status(400).json({ error: "Invalid request body" });
-    }
-
-    const existingUser = await db.collection("userprofiles").findOne({
-      $or: [{ name: newUser.name }, { email: newUser.email }],
-    });
-    if (existingUser) {
-      return res
-        .status(400)
-        .json({ error: "Username or email already exists" });
-    }
-
-    const result = await db.collection("userprofiles").insertOne(newUser);
-    const insertedUser = result.ops[0];
-    return res
-      .status(201)
-      .json({ message: "User signed up successfully", user: insertedUser });
-  } catch (error) {
-    console.error("Error signing up user:", error);
-    return res.status(500).json({ error: "Internal Server Error" });
-  }
-});
-
-//Global Party Songs
 
 app.get("/globalpartysongs", async (req, res) => {
   try {
@@ -276,18 +276,6 @@ app.delete("/users/:id", async (req, res) => {
   }
 });
 
-// Endpoint to sign up a new user
-app.post("/signup", async (req, res) => {
-  try {
-    const newUser = req.body;
-    const
-    
-  } catch (error) {
-    console.error("Error signing up user:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});
-
 app.get("/songsTitle", async (req, res) => {
   try {
     const db = client.db("db"); // Assuming "db" is your database name
@@ -311,7 +299,6 @@ app.get("/globalSongs", async (req, res) => {
     res.sendStatus(500).send("Internal Server Error");
   }
 });
-
 
 app.get("/api/search", async (req, res) => {
   try {

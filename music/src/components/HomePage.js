@@ -1,15 +1,14 @@
-// HomePage.js
 import React from "react";
 import NavBar from "./NavBar";
 import "./HomePage.css";
 import Footer from "./Footer";
 import MainBar from "./MainBar";
+
 import Sidebar from "./SideBar";
 
 const HomePage = () => {
   return (
     <div className="Home">
-      {" "}
       <NavBar></NavBar>
       <div className="homepage-container">
         <div className="sidebar-wrapper">
@@ -18,6 +17,7 @@ const HomePage = () => {
         <div className="main-bar-wrapper"></div>
         <MainBar></MainBar>
       </div>
+      
       <Footer></Footer>
     </div>
   );

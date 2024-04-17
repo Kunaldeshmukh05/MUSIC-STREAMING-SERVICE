@@ -1,18 +1,16 @@
 .main {
     background-color: black;
-    max-width: 100%;
+    width: 100vw;
     height: 70px;
-    /* Set height to 100px */
+    margin: 0;
+    padding: 0;
     display: flex;
-    /* Use flexbox */
     align-items: center;
-    /* Center content vertically */
-    margin-top: 180px;
-    position: -webkit-sticky;
+    position: fixed;
+
 
 
 }
-
 
 .Log-img {
     height: 65px;
@@ -48,8 +46,6 @@
     display: flex;
     align-items: center;
     margin-left: 200px;
-
-    /* Correct margin value */
 }
 
 .search-input {
@@ -76,13 +72,13 @@
 .login-btn {
 
     margin-left: 300px;
-    /* Adjust margin value */
+
 }
 
 .signup-btn {
     color: green;
     margin-left: 20px;
-    /* Adjust margin value */
+
 }
 
 .Login a {

@@ -1,50 +1,67 @@
-
-.cont {
+.login-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60vh;
-    background-color: #1DB954;
-    /* Green background color */
-    border-radius: 8px;
+    height: 100vh;
 }
 
-.Kunal {
+.login-form {
+    background-color: #38e449;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 70%;
+    /* Adjusted width for responsiveness */
+    max-width: 300px;
+    /* Optional: Set maximum width */
+}
+
+.login-title {
     text-align: center;
+    margin-bottom: 20px;
+    color: #373935;
+}
+
+.login-input-field {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    width: auto;
 
 }
 
-.input-field {
-    margin: 15px 15px 15px 15px;
-}
+.login-button {
+    width: 50%;
+    /* Adjusted width for responsiveness */
+    margin-top: 20px;
 
-.SignUpButton {
-    background-color: #9ee9a1;
-    /* Green background color */
-    color: white;
-    width: 120px;
-    padding: 10px 20px;
     border: none;
     border-radius: 5px;
+    background-color: #e4edf7;
+    color: #1fdd58;
+    padding: 7px;
+    font-size: 15px;
+    font-weight: 600;
     cursor: pointer;
-    margin-bottom: 10px;
-    font-size: 16px;
 }
 
-.SignUpButton:hover {
-    background-color: #2b332b;
-    /* Darker green color on hover */
+.login-button:hover {
+    background-color: #414243;
 }
 
-.checkbox-field {
-    margin-bottom: 15px;
+.login-checkbox-field {
+    display: flex;
+    align-items: center;
 }
 
-.new-user a {
-    color: blue;
-    text-decoration: none;
+.login-checkbox-field input {
+    margin-right: 5px;
 }
 
-.new-user a:hover {
-    text-decoration: underline;
+.login-new-user {
+    margin-right: 5px;
 }

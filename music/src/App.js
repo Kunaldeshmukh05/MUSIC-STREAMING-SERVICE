@@ -16,12 +16,13 @@ import IndiaTopSongs from "./components/IndiaTopSongs";
 import MarathiSongs from "./components/MarathiSongs";
 import BollywoodPartySongs from "./components/BollywoodPartySongs";
 import GlobalPartySongs from "./components/GlobalPartySongs";
-
+import ArtistList from "./components/artist";
 const App = () => {
   return (
     <>
       <BrowserRouter>
         <Routes>
+          <Route path="/SideBar/artist" element={<ArtistList />}></Route>
           <Route path="/MainBar/globalSongs" element={<GlobalSongs />}></Route>
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/NavBar" element={<NavBar />}></Route>

@@ -1,11 +1,11 @@
 .Home {
     background-color: #5a5252;
+position: static;
 }
-
-/* Homepage.css */
 
 .homepage-container {
     display: flex;
+
     height: 100vh;
 }
 

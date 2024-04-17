@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import axios from "axios";
 import "./SignUpPage.css"; // Import CSS file
@@ -26,15 +25,16 @@ function SignupUpPage() {
   };
 
   return (
-    <div className="wrap">
-      <div className="suc">
+    <div className="signup-container">
+      <div className="signup-form">
         <form onSubmit={handleSubmit}>
-          <h3>Signup Here</h3>
+          <h3 className="signup-title">Signup Here</h3>
           <input
             type="text"
             name="username"
             value={formData.username}
             onChange={handleChange}
+            className="signup-input"
             placeholder="Username"
             required
           />
@@ -43,6 +43,7 @@ function SignupUpPage() {
             name="email"
             value={formData.email}
             onChange={handleChange}
+            className="signup-input"
             placeholder="Email"
             required
           />
@@ -51,6 +52,7 @@ function SignupUpPage() {
             name="password"
             value={formData.password}
             onChange={handleChange}
+            className="signup-input"
             placeholder="Password"
             required
           />
@@ -60,20 +62,25 @@ function SignupUpPage() {
             name="confirmPassword"
             value={formData.password}
             onChange={handleChange}
-            placeholder="ConfirmPassword"
+            className="signup-input"
+            placeholder="Confirm Password"
             required
           />
           <input
             type="checkbox"
-            placeholder="remember me"
-            name="remember me "
+            name="rememberMe"
+            className="signup-checkbox"
             checked={formData.rememberMe}
-            value={formData.checked}
+            onChange={handleChange}
           />
-          <label htmlFor="remember-me">Remember me</label>
-          <button className="special" type="submit">
-            Signup
-          </button>
+          <label htmlFor="rememberMe" className="signup-label">
+            <div>Remember me</div>
+          </label>
+          <div>
+            <button className="signup-button" type="submit">
+              Signup
+            </button>
+          </div>
         </form>
       </div>
     </div>
@@ -81,19 +88,3 @@ function SignupUpPage() {
 }
 
 export default SignupUpPage;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
