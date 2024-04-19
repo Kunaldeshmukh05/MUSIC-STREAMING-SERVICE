@@ -1,7 +1,7 @@
 .main {
     background-color: black;
     width: 100vw;
-    height: 70px;
+    height: 60px;
     margin: 0;
     padding: 0;
     display: flex;
@@ -10,6 +10,14 @@
 
 
 
+}
+
+.logo {
+    background-image: url('./assets/main-logo.jpg');
+    height: 57px;
+    width: 65px;
+    margin-left:3vw ;
+    background-size: cover;
 }
 
 .Log-img {
@@ -45,11 +53,11 @@
 .search-container {
     display: flex;
     align-items: center;
-    margin-left: 200px;
-}
+    margin-left: 9vw;
+}   
 
 .search-input {
-    padding: 8px;
+    padding: 5px;
     margin-right: 8px;
     border-radius: 5px;
     border: none;

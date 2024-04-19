@@ -78,6 +78,24 @@ const MainBar = () => {
               </Link>
             </div>
           </div>
+
+          <div className="box box9">
+            <div className="box-img"></div>
+            <div className="box-content">
+              <Link to="/MainBar/top50Hindi">
+                <p>Telgu Hits</p>
+              </Link>
+            </div>
+          </div>
+
+          <div className="box box10">
+            <div className="box-img"></div>
+            <div className="box-content">
+              <Link to="/MainBar/GlobalPartySongs">
+                <p>Global PARTY SONGS</p>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>

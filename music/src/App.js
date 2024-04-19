@@ -17,6 +17,7 @@ import MarathiSongs from "./components/MarathiSongs";
 import BollywoodPartySongs from "./components/BollywoodPartySongs";
 import GlobalPartySongs from "./components/GlobalPartySongs";
 import ArtistList from "./components/artist";
+
 const App = () => {
   return (
     <>

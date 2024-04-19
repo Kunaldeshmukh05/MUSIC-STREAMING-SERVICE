@@ -24,6 +24,7 @@ const NavBar = ({ handleSearch }) => {
           <div className="nav-home">
             <FontAwesomeIcon icon={faHome} className="icon" />
           </div>
+          <div className="logo"></div>
           <div className="Log-img"></div>
           <div className="Log-im"></div>
           <div className="nav-item search-container">
