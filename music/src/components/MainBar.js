@@ -82,8 +82,8 @@ const MainBar = () => {
           <div className="box box9">
             <div className="box-img"></div>
             <div className="box-content">
-              <Link to="/MainBar/top50Hindi">
-                <p>Telgu Hits</p>
+              <Link to="/MainBar/telgu">
+                <p>Telgu Top Hits</p>
               </Link>
             </div>
           </div>

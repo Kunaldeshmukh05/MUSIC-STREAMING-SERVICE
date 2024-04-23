@@ -13,7 +13,7 @@ const LoginPage = () => {
     try {
       const auth = getAuth();
       await signInWithEmailAndPassword(auth, email, password);
-      navigate("/dashboard"); // If login is successful, navigate to another page
+      navigate("/HomePage"); // If login is successful, navigate to another page
     } catch (error) {
       setError(error.message);
     }

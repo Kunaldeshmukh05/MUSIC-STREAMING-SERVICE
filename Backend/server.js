@@ -30,15 +30,11 @@ const collectionNames = [
 app.get("/api/artists", async (req, res) => {
   try {
     let artists = [];
-
-    // Iterate over each collection and fetch artist names
     for (const collectionName of collectionNames) {
       const collection = client.db("db").collection(collectionName);
       const distinctArtists = await collection.distinct("artist");
       artists = [...artists, ...distinctArtists];
     }
-
-    // Remove duplicate artist names (if any)
     const uniqueArtists = Array.from(new Set(artists));
 
     res.json(uniqueArtists);
@@ -63,6 +59,19 @@ app.get("/songs/title/:songTitle", async (req, res) => {
   } catch (error) {
     console.error("Error fetching song by title:", error);
     res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+//Telgu songs
+
+app.get("/telgu", async (req, res) => {
+  try {
+    const collection = db.collection("TelguHits");
+    const songs = await collection.find({}).toArray();
+    res.json(songs);
+  } catch (error) {
+    console.error("Error fetching Telgu hits:", error);
+    res.status(500).json({ message: "Internal server error" });
   }
 });
 

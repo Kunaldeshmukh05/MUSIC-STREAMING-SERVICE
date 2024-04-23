@@ -41,9 +41,6 @@
 .box1 .box-img {
     background-image: url('./assets/top50.jpg');
     background-size: contain;
-    /* This property ensures that the entire image fits within the container */
-    /* Prevents the background image from repeating */
-
 }
 
 .box2 .box-img {

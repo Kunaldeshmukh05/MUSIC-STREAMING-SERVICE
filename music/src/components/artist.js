@@ -19,13 +19,13 @@ const ArtistList = () => {
 
   return (
     <div>
-      <h2>List of Artists</h2>
+      <h2>Your Favourite Artists</h2>
       {error && <p>Error: {error}</p>}
-      <ul>
+      <ol>
         {artists.map((artist) => (
           <li key={artist}>{artist}</li>
         ))}
-      </ul>
+      </ol>
     </div>
   );
 };
