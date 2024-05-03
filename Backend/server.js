@@ -7,8 +7,10 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 app.use(cors());
 app.use(bodyParser.json());
-app.use("/audio", express.static(__dirname + "/audio")); // Changed the path to serve audio files
+app.use("./audio", express.static("./audio"));
+
 const db = client.db("db");
+
 async function connectToMongoDB() {
   try {
     await client.connect();

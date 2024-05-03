@@ -31,6 +31,8 @@ const Sidebar = () => {
               <FaHeart /> Liked
             </Link>
           </button>
+          <br></br>
+          <hr className="hr"></hr>
           <button className="sidebar-button2">
             <Link to="/SideBar/RecentSongs">Recent Songs</Link>
           </button>

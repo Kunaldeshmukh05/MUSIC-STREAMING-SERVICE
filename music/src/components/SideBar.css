@@ -27,9 +27,7 @@
     flex-direction: column;
 }
 
-.sidebar-button2 {
-    padding: 4px;
-    margin: 5px 0;
+.sidebar-button2{
     font-size: 15px;
     border-radius: 10px;
     background-color: #3c3737;
@@ -51,10 +49,9 @@
 .sidebar-button1 {
     padding: 4px;
     background-color: #3c3737;
-    margin-left: 20px;
-    font-size: 15px;
+    margin-left: 2rem;
+    font-size: 20px;
     border-radius: 10px;
-    margin-top: 10px;
     color: #1DB954;
 
     width: 85px;
@@ -64,21 +61,24 @@
     font-weight: bold;
 }
 
-
+.hr{
+    color:white;
+    
+}
 .artist {
     border-radius: 10px;
     border: none;
     color: #1DB954;
     cursor: pointer;
-    font-size: 15px;
-    margin-left: 40px;
+    font-size: 20px;
+    margin-left: 1.5rem;
     padding: 10px;
     background-color: #3c3737;
     font-weight: bold;
 }
 
-.artist a{
-    color:#1DB954;
+.artist a {
+    color: #1DB954;
 }
 
 .sidebar-button a {
@@ -91,7 +91,8 @@
     border: none;
     color: #1DB954;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 20px;
+    margin-left: 2rem;
     background-color: #3c3737;
     font-weight: bold;
 }

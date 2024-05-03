@@ -23,7 +23,7 @@ const GlobalPartySongs = () => {
     <div className="songs-container">
       {" "}
       {/* Wrap content in a container */}
-      <h1>Marathi Songs</h1>
+      <h1>GlobalPartySongs</h1>
       <ol>
         {globalpartysongs.map((song) => (
           <li key={song.id}>

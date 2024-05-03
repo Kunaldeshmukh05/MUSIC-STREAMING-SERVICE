@@ -1,8 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import firebase from "./components/Firebase-config.js";
-import firebaseApp from "./components/Firebase-config.js";
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore"; // Import Firestore
 import SignUpPage from "./components/SignUpPage";
 import LoginPage from "./components/LoginPage";
 import HomePage from "./components/HomePage";
@@ -22,12 +18,8 @@ import BollywoodPartySongs from "./components/BollywoodPartySongs";
 import GlobalPartySongs from "./components/GlobalPartySongs";
 import ArtistList from "./components/artist";
 import Telgu from "./components/telgu";
-import { getAuth } from "firebase/auth"; // Import Authentication
 
 const App = () => {
-  // Initialize Firestore and Authentication
-  const db = getFirestore(firebaseApp);
-  const auth = getAuth(firebaseApp);
   return (
     <>
       <BrowserRouter>
@@ -72,3 +64,36 @@ const App = () => {
 };
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

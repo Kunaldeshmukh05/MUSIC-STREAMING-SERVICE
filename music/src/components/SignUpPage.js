@@ -1,8 +1,98 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import "./SignUpPage.css"; // Import CSS file
+import app from "./firebase";
+import { useState } from "react";
+const auth = getAuth(app);
 
 function SignupUpPage() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [checkbox, setCheckbox] = useState("");
+
+  const createUser = () => {
+    createUserWithEmailAndPassword(
+      auth,
+      email,
+      username,
+      password,
+      confirmPassword,
+      checkbox
+    ).then((value) => alert("SignUp Successful"));
+  };
+
+  return (
+    <>
+      <div className="signup-container">
+        <div className="signup-form">
+          <h3 className="signup-title">Signup Here</h3>
+
+          <input
+            onChange={(e) => setEmail(e.target.value)}
+            type="email"
+            value={email}
+            className="signup-input"
+            required
+            placeholder="Enter your Email"
+          />
+
+          <input
+            onChange={(e) => setUsername(e.target.value)}
+            type="text"
+            value={username}
+            name="username"
+            className="signup-input"
+            placeholder="Username"
+            required
+          />
+
+          <input
+            onChange={(e) => setPassword(e.target.value)}
+            type="password"
+            value={password}
+            className="signup-input"
+            placeholder="Password"
+            required
+          />
+
+          <input
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            type="confirmPassword"
+            value={confirmPassword}
+            className="signup-input"
+            placeholder="Confirm Password"
+            required
+          />
+          <input
+            onChange={(e) => setCheckbox(e.target.value)}
+            type="checkbox"
+            value={checkbox}
+            name="rememberMe"
+            className="signup-checkbox"
+          />
+          <label htmlFor="rememberMe" className="signup-label">
+            <div>Remember me</div>
+          </label>
+          <div>
+            <button
+              onClick={createUser}
+              className="signup-button"
+              type="submit"
+            >
+              Signup
+            </button>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default SignupUpPage;
+
+/* 
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -22,69 +112,4 @@ function SignupUpPage() {
     } catch (error) {
       alert("Signup failed. Please try again.");
     }
-  };
-
-  return (
-    <div className="signup-container">
-      <div className="signup-form">
-        <form onSubmit={handleSubmit}>
-          <h3 className="signup-title">Signup Here</h3>
-          <input
-            type="text"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            className="signup-input"
-            placeholder="Username"
-            required
-          />
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className="signup-input"
-            placeholder="Email"
-            required
-          />
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            className="signup-input"
-            placeholder="Password"
-            required
-          />
-
-          <input
-            type="password"
-            name="confirmPassword"
-            value={formData.password}
-            onChange={handleChange}
-            className="signup-input"
-            placeholder="Confirm Password"
-            required
-          />
-          <input
-            type="checkbox"
-            name="rememberMe"
-            className="signup-checkbox"
-            checked={formData.rememberMe}
-            onChange={handleChange}
-          />
-          <label htmlFor="rememberMe" className="signup-label">
-            <div>Remember me</div>
-          </label>
-          <div>
-            <button className="signup-button" type="submit">
-              Signup
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  );
-}
-
-export default SignupUpPage;
+  };*/

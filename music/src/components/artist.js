@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "./artist.css";
 
 const ArtistList = () => {
   const [artists, setArtists] = useState([]);
@@ -19,7 +20,7 @@ const ArtistList = () => {
 
   return (
     <div>
-      <h2>Your Favourite Artists</h2>
+      <h2 className="Art">Your Favourite Artists</h2>
       {error && <p>Error: {error}</p>}
       <ol>
         {artists.map((artist) => (

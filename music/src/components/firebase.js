@@ -1,4 +1,3 @@
-// Firebase-config.js
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
@@ -8,9 +7,10 @@ const firebaseConfig = {
   storageBucket: "music-streaming-service-5b99a.appspot.com",
   messagingSenderId: "843242101331",
   appId: "1:843242101331:web:a3b390b10c2763ca5404a6",
+  databaseURL:
+    "https://music-streaming-service-5b99a-default-rtdb.firebaseio.com/",
 };
 
-// Initialize Firebase
-const firebaseApp = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
-export default firebaseApp;
+export default app;

@@ -31,16 +31,18 @@ const Telgu = () => {
   }
 
   return (
-    <div>
+    <>
       <h2>Telgu Hits</h2>
-      <ul>
-        {songs.map((song, index) => (
-          <li key={index}>
-            {song.title} - {song.artist}
-          </li>
-        ))}
-      </ul>
-    </div>
+      <div>
+        <ul>
+          {songs.map((song, index) => (
+            <li key={index}>
+              {song.title} - {song.artist}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 };
 

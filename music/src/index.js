@@ -1,8 +1,7 @@
 import ReactDOM from "react-dom";
 import React from "react";
-
-import App from "./App.js"; // Import your App component
-import "./index.css"; // Import the initialized Firebase app
+import App from "./App.js"; 
+import "./index.css"; 
 import "bootstrap/dist/css/bootstrap.min.css";
 
 ReactDOM.render(

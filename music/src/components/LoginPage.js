@@ -1,29 +1,33 @@
-import "./LoginPage.css";
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import app from "./firebase";
+import './LoginPage.css'
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const navigate = useNavigate();
 
-  const handleLogin = async () => {
-    try {
-      const auth = getAuth();
-      await signInWithEmailAndPassword(auth, email, password);
-      navigate("/HomePage"); // If login is successful, navigate to another page
-    } catch (error) {
-      setError(error.message);
-    }
+  const auth = getAuth(app);
+
+  const signInUser = (e) => {
+    e.preventDefault();
+    signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        alert("Sign in success");
+        // Redirect or perform other actions upon successful login
+      })
+      .catch((err) => {
+        setError("Invalid email or password. Please try again.");
+        console.error("Error signing in:", err.message);
+      });
   };
 
   return (
     <div className="login-container">
       <div className="login-form">
         <h3 className="login-title">Login</h3>
-        {error && <p className="login-error">{error}</p>}
         <div className="login-input-field">
           <input
             type="text"
@@ -41,10 +45,12 @@ const LoginPage = () => {
           />
         </div>
 
-        <button className="login-button" onClick={handleLogin}>
+        <button className="login-button" type="submit" onClick={signInUser}>
           Login
         </button>
-        <br></br>
+        {error && <div className="login-error">{error}</div>}
+        <br />
+
         <div className="login-checkbox-field">
           <input type="checkbox" id="login-remember-me" />
           <label htmlFor="login-remember-me">Remember me</label>
