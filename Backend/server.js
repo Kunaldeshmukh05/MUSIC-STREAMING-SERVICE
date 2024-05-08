@@ -5,9 +5,12 @@ const PORT = 3000;
 const client = new MongoClient("mongodb://127.0.0.1:27017/db");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const path = require("path"); // Require path module for resolving paths
 app.use(cors());
 app.use(bodyParser.json());
-app.use("./audio", express.static("./audio"));
+
+// Serve static audio files from the /audio endpoint
+app.use("/audio", express.static(path.join(__dirname, "audio"))); // Use path.join to ensure platform-independent path joining
 
 const db = client.db("db");
 
@@ -17,9 +20,24 @@ async function connectToMongoDB() {
     console.log("Connected to MongoDB");
   } catch (error) {
     console.error("Error connecting to MongoDB:", error);
+    process.exit(1); // Exit the process if unable to connect to MongoDB
   }
 }
+
+// Error handling for MongoDB connection
+client.on("error", (err) => {
+  console.error("MongoDB connection error:", err);
+  process.exit(1); // Exit the process if there is a MongoDB connection error
+});
+
 connectToMongoDB();
+
+// Close MongoDB client when the server shuts down
+process.on("SIGINT", () => {
+  client.close();
+  console.log("MongoDB connection closed");
+  process.exit();
+});
 
 const collectionNames = [
   "BollywoodParty",
@@ -27,7 +45,26 @@ const collectionNames = [
   "HindiSongs",
   "MarathiSongs",
   "TopIndia",
+  "TelguHits",
+  "GlobalSongs",
 ];
+app.get("/song", async (req, res) => {
+  try {
+    const collection = db.collection("HindiSongs");
+    const song = await collection.findOne({}); // Retrieve the first document
+
+    // Check if a song is found
+    if (song) {
+      res.json(song);
+    } else {
+      // If no song is found, return an appropriate error message
+      res.status(404).json({ error: "No song found" });
+    }
+  } catch (error) {
+    console.error("Error fetching song:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
 
 app.get("/api/artists", async (req, res) => {
   try {
@@ -77,17 +114,28 @@ app.get("/telgu", async (req, res) => {
   }
 });
 
+/*trying to get the songpath with url
+const path = require("path");
+
 app.get("/songs", async (req, res) => {
   try {
     const collection = db.collection("HindiSongs");
-    const songs = await collection.find({}).toArray();
-    res.json(songs);
+    const songs = await collection.findOne({});
+
+    // Construct the file paths dynamically using Express's static middleware
+    const songsWithPath = songs.map((song) => {
+      return {
+        ...song,
+        filePath: `/audio/${song.audioPath}`, // Constructing the relative file path
+      };
+    });
+    res.json(songsWithPath);
   } catch (error) {
     console.error("Error fetching songs:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
-
+*/
 //Marathi songs
 app.get("/marathisongs", async (req, res) => {
   try {

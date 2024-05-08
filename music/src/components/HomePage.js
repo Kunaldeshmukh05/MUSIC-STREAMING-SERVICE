@@ -3,7 +3,6 @@ import NavBar from "./NavBar";
 import "./HomePage.css";
 import Footer from "./Footer";
 import MainBar from "./MainBar";
-
 import Sidebar from "./SideBar";
 
 const HomePage = () => {
@@ -17,8 +16,9 @@ const HomePage = () => {
         <div className="main-bar-wrapper"></div>
         <MainBar></MainBar>
       </div>
-      
-      <Footer></Footer>
+      <div className="Footer-wrapper">
+        <Footer></Footer>
+      </div>
     </div>
   );
 };

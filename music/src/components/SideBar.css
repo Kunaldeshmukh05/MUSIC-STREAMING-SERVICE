@@ -2,7 +2,7 @@
     display: flex;
     height: 59.5vh;
     width: 19.58vw;
-    background-color: #3c3737;
+    background-color: #464343;
     border-radius: 10px;
     margin-right: 10px;
     margin-left: 10px;
@@ -27,7 +27,7 @@
     flex-direction: column;
 }
 
-.sidebar-button2{
+.sidebar-button2 {
     font-size: 15px;
     border-radius: 10px;
     background-color: #3c3737;
@@ -61,10 +61,11 @@
     font-weight: bold;
 }
 
-.hr{
-    color:white;
-    
+.hr {
+    color: white;
+
 }
+
 .artist {
     border-radius: 10px;
     border: none;

@@ -27,7 +27,7 @@ const LoginPage = () => {
   return (
     <div className="login-container">
       <div className="login-form">
-        <h3 className="login-title">Login</h3>
+        <h3 className="login-title">SignIn</h3>
         <div className="login-input-field">
           <input
             type="text"
@@ -59,7 +59,7 @@ const LoginPage = () => {
         <div>
           <span className="login-new-user">New User?</span>
           <span>
-            <Link to="/LoginPage/SignUpPage">Signup</Link>
+            <Link to="/LoginPage/SignUpPage">SignIn</Link>
           </span>
         </div>
       </div>

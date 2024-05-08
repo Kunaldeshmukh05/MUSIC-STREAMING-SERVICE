@@ -19,8 +19,8 @@ const ArtistList = () => {
   }, []);
 
   return (
-    <div>
-      <h2 className="Art">Your Favourite Artists</h2>
+    <div className="artist-list-container">
+      <h2 className="art">Your Favourite Artists</h2>
       {error && <p>Error: {error}</p>}
       <ol>
         {artists.map((artist) => (

@@ -1,14 +1,19 @@
 .playbar {
-    margin-top: 0%;
-    display: flex;
+
+display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #3c3737;
+    background-color: #181616;
+position: relative;
     padding: 10px;
     height: 15vh;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
+}
+
+.song-toggle {
+    margin-left: 10%;
 }
 
 .song-name {
@@ -28,16 +33,24 @@
     width: 260px;
 }
 
-.h6 {
-    margin-top: 2px;
-}
-
 .emote {
     height: 40px;
     width: 40px;
     background-size: cover;
     display: flex;
     background-image: url('./assets/equaliser-animated-green.f5eb96f2.gif');
+}
+
+.volume {
+    margin-left: 27%;
+}
+
+.next-button {
+    margin-left: 4vw;
+}
+
+.play-pause {
+    margin-left: 4vw;
 }
 
 .playbar-div {

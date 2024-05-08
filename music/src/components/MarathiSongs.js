@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./topHindi.css";
-
+import NavBar from "./NavBar";
+import Footer from "./Footer";
 const MarathiSongs = () => {
   const [marathisongs, setSongs] = useState([]);
 
@@ -20,6 +21,8 @@ const MarathiSongs = () => {
   }, []);
 
   return (
+    <>
+    <NavBar></NavBar>
     <div className="songs-container">
       {" "}
       {/* Wrap content in a container */}
@@ -34,6 +37,8 @@ const MarathiSongs = () => {
         ))}
       </ol>
     </div>
+    <Footer></Footer>
+    </>
   );
 };
 

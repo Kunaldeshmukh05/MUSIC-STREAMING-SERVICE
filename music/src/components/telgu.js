@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import "./telgu.css";
 const Telgu = () => {
   const [songs, setSongs] = useState([]);
   const [loading, setLoading] = useState(true);

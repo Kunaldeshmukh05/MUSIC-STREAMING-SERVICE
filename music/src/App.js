@@ -18,16 +18,18 @@ import BollywoodPartySongs from "./components/BollywoodPartySongs";
 import GlobalPartySongs from "./components/GlobalPartySongs";
 import ArtistList from "./components/artist";
 import Telgu from "./components/telgu";
+import Landingpage from "./landingpage";
 
 const App = () => {
   return (
     <>
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<Landingpage/>}></Route>
           <Route path="/MainBar/telgu" element={<Telgu />}></Route>
           <Route path="/SideBar/artist" element={<ArtistList />}></Route>
           <Route path="/MainBar/globalSongs" element={<GlobalSongs />}></Route>
-          <Route path="/" element={<HomePage />}></Route>
+          <Route path="/Home" element={<HomePage />}></Route>
           <Route path="/NavBar" element={<NavBar />}></Route>
           <Route path="/LoginPage" element={<LoginPage />}></Route>
           <Route path="/SignUpPage" element={<SignUpPage />}></Route>

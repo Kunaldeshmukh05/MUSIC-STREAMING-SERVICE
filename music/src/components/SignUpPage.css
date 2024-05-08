@@ -1,71 +1,53 @@
-/* SignUpPage.css */
-
 .signup-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.signup-form {
-    display: flex;
-    flex-direction: column;
-    /* Display items in a column */
-    background-color: #36d236;
-    /* Green background color */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5); /* Transparent background color */
     padding: 20px;
-    align-items: center;
-    /* Center items horizontally */
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    /* Width of 80% */
-    max-width: 400px;
-    /* Optional: Set maximum width */
-}
-
-.signup-title {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .signup-form {
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .signup-title {
+    color: white; /* Text color */
     text-align: center;
-    margin-bottom: 20px;
-}
-
-.signup-input {
+  }
+  
+  .signup-input {
     width: 100%;
-    /* Width of 100% */
-    margin: 10px 0;
     padding: 10px;
-    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    color: white; /* Text color */
     border-radius: 5px;
-}
-
-.signup-button {
-    width: 50%;
-    margin-top: 20px;
-    margin-left: 90px;
+    background-color: rgba(0, 0, 0, 0.5); /* Transparent background */
+    border: 1px solid #ccc;
+  }
+  
+  .signup-checkbox {
+    margin-right: 10px;
+  }
+  
+  .signup-label {
+    color: white; /* Text color */
+  }
+  
+  .signup-button {
+    width: 100%;
     padding: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #daf6e5;
-    color: #6cdc58;
-    font-weight: 600;
+    background-color: rgba(0, 0, 0, 0.5); /* Transparent background */
+    color: white; /* Button text color */
     cursor: pointer;
-}
-
-.signup-button:hover {
-    background-color: #41484c;
-}
-
-.signup-checkbox-container {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-    /* Add margin to separate from other elements */
-}
-
-.signup-checkbox {
-    margin-right: 5px;
-}
-
-.signup-label {
-    margin-left: 5px;
-}
+  }
+  
+  .signup-button:hover {
+    background-color: #45a049; /* Hover color */
+  }
+  
