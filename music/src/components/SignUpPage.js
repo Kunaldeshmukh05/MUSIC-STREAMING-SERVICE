@@ -2,6 +2,7 @@ import React from "react";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import "./SignUpPage.css"; // Import CSS file
 import app from "./firebase";
+import Land from'./Land';
 import { useState } from "react";
 const auth = getAuth(app);
 
@@ -10,7 +11,7 @@ function SignupUpPage() {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [checkbox, setCheckbox] = useState("");
+
 
   const createUser = () => {
     createUserWithEmailAndPassword(
@@ -19,12 +20,13 @@ function SignupUpPage() {
       username,
       password,
       confirmPassword,
-      checkbox
+      
     ).then((value) => alert("SignUp Successful"));
   };
 
   return (
     <>
+    <Land></Land>
       <div className="signup-container">
         <div className="signup-form">
           <h3 className="signup-title">Signup Here</h3>
@@ -65,23 +67,14 @@ function SignupUpPage() {
             placeholder="Confirm Password"
             required
           />
-          <input
-            onChange={(e) => setCheckbox(e.target.value)}
-            type="checkbox"
-            value={checkbox}
-            name="rememberMe"
-            className="signup-checkbox"
-          />
-          <label htmlFor="rememberMe" className="signup-label">
-            <div>Remember me</div>
-          </label>
+
           <div>
             <button
               onClick={createUser}
-              className="signup-button"
+              className="signup-butto"
               type="submit"
             >
-              Signup
+              SignUp
             </button>
           </div>
         </div>

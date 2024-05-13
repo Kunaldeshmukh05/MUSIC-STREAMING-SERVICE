@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import app from "./firebase";
+import Land from "./Land";
 import './LoginPage.css'
 
 const LoginPage = () => {
@@ -25,6 +26,8 @@ const LoginPage = () => {
   };
 
   return (
+    <>
+    <Land></Land>
     <div className="login-container">
       <div className="login-form">
         <h3 className="login-title">SignIn</h3>
@@ -46,24 +49,22 @@ const LoginPage = () => {
         </div>
 
         <button className="login-button" type="submit" onClick={signInUser}>
-          Login
+          SignIn
         </button>
         {error && <div className="login-error">{error}</div>}
         <br />
 
-        <div className="login-checkbox-field">
-          <input type="checkbox" id="login-remember-me" />
-          <label htmlFor="login-remember-me">Remember me</label>
-        </div>
+        
 
         <div>
           <span className="login-new-user">New User?</span>
-          <span>
+          <span className="S">
             <Link to="/LoginPage/SignUpPage">SignIn</Link>
           </span>
         </div>
       </div>
     </div>
+    </>
   );
 };
 
