@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
-import LoginPage from './components/LoginPage'; // Import the LoginPage component
-import SignUpPage from './components/SignUpPage'; // Import the SignUpPage component
+import { Link } from 'react-router-dom';
+
 import './landingpages.css';
 
 const Landingpage = () => {
-  const [showLoginPage, setShowLoginPage] = useState(false); // State variable to toggle visibility of login page
-  const [showSignUpPage, setShowSignUpPage] = useState(false); // State variable to toggle visibility of sign up page
+ 
+  
 
   return (
     <>
@@ -16,10 +15,10 @@ const Landingpage = () => {
           <br></br>
           <p className='text'>Unleash a world of endless music possibilities at your fingertips.</p>
           <br></br>
-          {showLoginPage && <LoginPage />} {/* Conditionally render LoginPage */}
-          {showSignUpPage && <SignUpPage />} {/* Conditionally render SignUpPage */}
-          <div>
-            <button className='sign' onClick={() => setShowLoginPage(true)}>SignUp</button> {/* Button to toggle visibility of login page */}
+ 
+          <div >
+          <button className='sign'><Link to="/LoginPage" >SignIn</Link></button>
+           
           </div>
         </div>
     

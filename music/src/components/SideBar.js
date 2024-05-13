@@ -13,7 +13,7 @@ const Sidebar = () => {
           <button className="sidebar-button">
             <Link to="/SideBar/RecentSongs">
               <VscLibrary />
-              &nbsp;Your Library
+              &nbsp;Your Library  
             </Link>
           </button>
         </div>
@@ -21,24 +21,31 @@ const Sidebar = () => {
         <div className="artist">
           <Link to="/Sidebar/artist">
             <MdManageAccounts />
-            &nbsp;Artists
+            &nbsp;Artists 
           </Link>
         </div>
 
-        <div className="sidebar-button-group">
-          <button className="sidebar-button1">
-            <Link to="/SideBar/LikedSongs">
-              <FaHeart /> Liked
+        <button className="sbar-button1">
+            <Link to="/SideBar/LikedSongs" >
+              <FaHeart /> Liked Songs
             </Link>
           </button>
-          <br></br>
-          <hr className="hr"></hr>
+        
+        <hr></hr>
+      </div>
+      <div className="recent-render">
+      <div className="sidebar-button-group">
           <button className="sidebar-button2">
             <Link to="/SideBar/RecentSongs">Recent Songs</Link>
           </button>
         </div>
-        <br></br>
       </div>
+
+
+
+        
+
+
     </div>
   );
 };

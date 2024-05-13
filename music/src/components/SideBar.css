@@ -1,13 +1,15 @@
 .sidebar-container {
     display: flex;
-    height: 59.5vh;
-    width: 19.58vw;
-    background-color: #464343;
+    flex-direction: column;
+    height: 60vh; /* Adjusted height using viewport height unit */
+    width: 20vw; /* Adjusted width using viewport width unit */
+ /* Changed background color to transparent */
     border-radius: 10px;
-    margin-right: 10px;
-    margin-left: 10px;
+    margin-right: 1vw; /* Adjusted margin using viewport width unit */
+    margin-left: 0.6vw; /* Adjusted margin using viewport width unit */
     position: fixed;
     top: 70px;
+    background-color: #677E61;
 }
 
 .sidebar {
@@ -16,85 +18,82 @@
 }
 
 .sidebar-buttons {
-    margin-top: 15px;
-    justify-content: left;
+    margin-top: 2vh; /* Adjusted margin using viewport height unit */
     display: flex;
-    flex-direction: column;
+
+    
 }
 
 .sidebar-button-group {
-
-    flex-direction: column;
+    background-color: #677E61;
 }
 
 .sidebar-button2 {
-    font-size: 15px;
-    border-radius: 10px;
-    background-color: #3c3737;
+    font-size: 1.2vw; /* Adjusted font size using viewport width unit */
     border: none;
     cursor: pointer;
     font-weight: bold;
+    padding-left: 1vw;
+    background-color: #677E61;
 }
-
-.sidebar-button1 a {
-    text-decoration: none;
-    color: #1DB954;
-}
-
 .sidebar-button2 a {
     text-decoration: none;
-    color: #1DB954;
+    color: white;
 }
 
-.sidebar-button1 {
-    padding: 4px;
-    background-color: #3c3737;
-    margin-left: 2rem;
-    font-size: 20px;
-    border-radius: 10px;
-    color: #1DB954;
-
-    width: 85px;
+.sbar-button1 a {
     text-decoration: none;
+    color: white;
+}
+
+
+.sbar-button1 {
     border: none;
-    cursor: pointer;
+    display: flex;
+    align-items: center; 
+    padding-left:1vw;
+    /* Adjusted margin using viewport width unit */
+    font-size: 1.2vw; /* Adjusted font size using viewport width unit */
+ background-color: #677E61;;
     font-weight: bold;
 }
 
 .hr {
     color: white;
-
 }
 
 .artist {
     border-radius: 10px;
     border: none;
-    color: #1DB954;
     cursor: pointer;
-    font-size: 20px;
-    margin-left: 1.5rem;
-    padding: 10px;
-    background-color: #3c3737;
+    padding: 1vw;
+    font-size: 1.2vw; /* Adjusted font size using viewport width unit */
+    /* Adjusted margin using viewport width unit */
+ /* Adjusted padding using viewport height and width units */
+     background-color: #677E61;; /* Changed background color to dark olive green */
     font-weight: bold;
 }
 
 .artist a {
-    color: #1DB954;
+    color: white;
 }
 
 .sidebar-button a {
-    color: #1DB954;
+    color: white;
     text-decoration: none;
+   
 }
 
 .sidebar-button {
+    background-color: #677E61;
     border-radius: 10px;
     border: none;
-    color: #1DB954;
+    display: flex;
+    align-items: center;
     cursor: pointer;
-    font-size: 20px;
-    margin-left: 2rem;
-    background-color: #3c3737;
+    font-size: 1.2vw; /* Adjusted font size using viewport width unit */
+    margin-left: 0.6vw; /* Adjusted margin using viewport width unit */
+ /* Changed background color to dark olive green */
     font-weight: bold;
 }
 
@@ -103,24 +102,60 @@
 }
 
 .song-info-box {
-    padding: 20px;
+    padding: 2vh 3vw; /* Adjusted padding using viewport height and width units */
     color: aliceblue;
     border-radius: 10px;
-    background-color: #171212;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 20px;
+    background-color: #464343; /* Changed background color to dark olive green */
+    margin: 2vh 2vw; /* Adjusted margin using viewport height and width units */
 }
 
 .song-image {
-    height: 150px;
-    margin-top: 10px;
-    width: 150px;
+    height: 20vh; /* Adjusted height using viewport height unit */
+    width: 20vw; /* Adjusted width using viewport width unit */
     background-size: cover;
     background-image: url('./assets/ab67616d00001e020acb5a72549287bf33b51b71ab67616d00001e0249079e6945b600abe668cae4ab67616d00001e02707ea5b8023ac77d31756ed4ab67616d00001e02d567bc615d8d891d112c8a35.jpg');
 }
 
 .song-details {
-    margin-top: 10px;
+    margin-top: 2vh; /* Adjusted margin using viewport height unit */
     color: aliceblue;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 1200px) {
+    .sidebar-container {
+        width: 25vw; /* Adjusted width for smaller screens */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .sidebar-container {
+        width: 30vw; /* Adjusted width for even smaller screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .sidebar-container {
+        width: 90vw; /* Adjusted width for smallest screens */
+        margin-left: 5vw; /* Adjusted margin for smallest screens */
+        margin-right: 5vw; /* Adjusted margin for smallest screens */
+    }
+    .song-info-box {
+        padding: 5vw; /* Adjusted padding for smallest screens */
+        margin: 5vw; /* Adjusted margin for smallest screens */
+    }
+    .song-image {
+        height: 30vh; /* Adjusted height for smallest screens */
+        width: 30vw; /* Adjusted width for smallest screens */
+    }
+}
+
+.recent-render{
+    border: white solid 1.5px;
+    padding: 1vw;
+    width: 90%;
+    display: flex;
+    align-self: center;
+    height: 33vh;
+    border-radius: 1vw;
 }

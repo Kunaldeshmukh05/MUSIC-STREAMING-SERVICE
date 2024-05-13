@@ -39,6 +39,17 @@ process.on("SIGINT", () => {
   process.exit();
 });
 
+const trackSchema = {
+  title: String,
+  artist: String,
+  album: String,
+  duration: String,
+  coverImageUrl: String,
+  releaseDate: String,
+  genre: String,
+  category: String,
+};
+
 const collectionNames = [
   "BollywoodParty",
   "GlobalParty",
@@ -238,114 +249,6 @@ app.get("/songs/top", async (req, res) => {
   }
 });
 
-// Endpoint to get songs by artist
-app.get("/songs/artist/:artistName", async (req, res) => {
-  const artistName = req.params.artistName;
-  try {
-    const db = client.db("db");
-    const collection = db.collection("HindiSongs");
-    const songsByArtist = await collection
-      .find({ artist: artistName })
-      .toArray();
-    res.json(songsByArtist);
-  } catch (error) {
-    console.error("Error fetching songs by artist:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});
-
-app.get("/users", async (req, res) => {
-  try {
-    res.json(userprofiles);
-  } catch (error) {
-    console.error("Error fetching users:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});
-
-//login and signup endpoints started from here contains find users get users
-// get user by id , create new user
-
-app.get("/users/:id", async (req, res) => {
-  try {
-    const userId = parseInt(req.params.id);
-    const user = userprofiles.find((user) => user.id === userId);
-    if (user) {
-      res.json(user);
-    } else {
-      res.status(404).json({ error: "User not found" });
-    }
-  } catch (error) {
-    console.error("Error fetching user by ID:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});
-
-// Endpoint to create a new user
-app.post("/users", async (req, res) => {
-  try {
-    const newUser = req.body;
-    userprofiles.push(newUser);
-    res
-      .status(201)
-      .json({ message: "User created successfully", user: newUser });
-  } catch (error) {
-    console.error("Error creating user:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});
-
-// Endpoint to update an existing user
-app.put("/users/:id", async (req, res) => {
-  try {
-    const userId = parseInt(req.params.id);
-    const updateUser = req.body;
-    const index = userprofiles.findIndex((user) => user.id === userId);
-
-    if (index !== -1) {
-      userprofiles[index] = { ...userprofiles[index], ...updateUser };
-      res.json({
-        message: "User updated successfully",
-        user: userprofiles[index],
-      });
-    } else {
-      res.status(404).json({ error: "User not found" });
-    }
-  } catch (error) {
-    console.error("Error updating user:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});
-
-// Endpoint to delete a user by ID
-app.delete("/users/:id", async (req, res) => {
-  try {
-    const userId = parseInt(req.params.id);
-    const index = userprofiles.findIndex((user) => user.id === userId);
-
-    if (index !== -1) {
-      userprofiles.splice(index, 1);
-      res.json({ message: "User deleted successfully" });
-    } else {
-      res.status(404).json({ error: "User not found" });
-    }
-  } catch (error) {
-    console.error("Error deleting user:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});
-
-app.get("/songsTitle", async (req, res) => {
-  try {
-    const db = client.db("db"); // Assuming "db" is your database name
-    const collection = db.collection("HindiSongs");
-    const documents = await collection.find({ Title: "Tum hi ho" }).toArray();
-    res.send(documents);
-  } catch (error) {
-    console.error("Error fetching songs:", error);
-    res.status(500).send("Internal Server Error");
-  }
-});
 
 app.get("/globalSongs", async (req, res) => {
   try {
@@ -359,18 +262,44 @@ app.get("/globalSongs", async (req, res) => {
   }
 });
 
+
+
+
 app.get("/api/search", async (req, res) => {
+  const query = req.query.query;
+
   try {
-    const { query } = req.query;
-    const response = await axios.get(
-      `https://api.spotify.com/v1/search?q=${query}&type=track`
-    );
-    res.json(response.data);
+    const db = client.db(); // Get the database
+    const searchResults = [];
+
+    // Loop through each collection name and search for tracks
+    for (const collectionName of collectionNames) {
+      const collection = db.collection(collectionName);
+
+      // Search for tracks in the current collection
+      const tracksInCollection = await collection
+        .find({
+          $or: [
+            { title: { $regex: query, $options: "i" } },
+            { artist: { $regex: query, $options: "i" } },
+          ],
+        })
+        .toArray();
+
+      // Add the tracks found in this collection to the search results
+      searchResults.push(...tracksInCollection);
+    }
+
+    res.json({ tracks: searchResults });
   } catch (error) {
     console.error("Error searching tracks:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: "Internal server error" });
   }
 });
+
+
+
+
 
 app.listen(PORT, () => {
   console.log(`Listening on ${PORT}`);

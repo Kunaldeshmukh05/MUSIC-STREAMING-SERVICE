@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./topHindi.css";
 import { Link } from "react-router-dom";
+import FooterPanel from "./footerPanel";
 const LikedSongs = () => {
   const [likedSongs, setLikedSongs] = useState([]);
 
@@ -22,6 +23,7 @@ const LikedSongs = () => {
   return (
     <div className="container">
       {" "}
+      <FooterPanel></FooterPanel>
       <h1>
         <Link to="/LikedSongs">Liked Songs</Link>
       </h1>

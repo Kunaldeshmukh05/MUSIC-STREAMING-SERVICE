@@ -16,6 +16,7 @@ const HomePage = () => {
         <div className="main-bar-wrapper"></div>
         <MainBar></MainBar>
       </div>
+      
       <div className="Footer-wrapper">
         <Footer></Footer>
       </div>

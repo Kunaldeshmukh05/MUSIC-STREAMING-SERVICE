@@ -1,5 +1,5 @@
 .main {
-    background-color: black;
+    background-color: rgb(9, 55, 30);
     width: 100vw;
     height: 60px;
     margin: 0;
@@ -26,7 +26,7 @@
 }
 
 .nav-profile {
-    margin-left: 40px;
+    margin-left: 6vw;
 }
 
 .nav-home {
@@ -37,14 +37,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: white;
+    color: transparent;
     flex-grow: 1;
     /* Allow container to grow */
 }
 
 .icon {
     font-size: 24px;
-    color: #1DB954;
+    color: white;
 }
 
 .search-container {
@@ -54,10 +54,13 @@
 }
 
 .search-input {
-    padding: 5px;
-    margin-right: 8px;
-    border-radius: 5px;
-    border: none;
+    background-color: rgb(9, 55, 30); /* Transparent dark green with 50% opacity */
+    color: #fff; /* Text color */
+    border: 1px solid #eaf2ea; /* Border color */
+    border-radius: 5px; /* Border radius */
+    /* Button padding */
+    padding: 0.3vw;
+    cursor: pointer; /* Cursor style */
 }
 
 .signup-btn,
@@ -76,30 +79,30 @@
 
 .login-btn {
 
-    margin-left: 300px;
+    margin-left: 30vw;
 
 }
 
 .signup-btn {
     color: green;
-    margin-left: 20px;
+    margin-left: 6vw;
 
 }
 
 .Login a {
-    color: green;
+    color: white;
     font-size: larger;
     text-decoration: none;
 }
 
 .Sign a {
-    color: green;
+    color: white;
     font-size: larger;
     text-decoration: none;
 }
 
 .Profile a {
-    color: green;
+    color:  rgb(9, 55, 30);
     font-size: larger;
     text-decoration: none;
 }

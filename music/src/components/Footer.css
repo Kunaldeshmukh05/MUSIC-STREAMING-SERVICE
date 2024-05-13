@@ -3,10 +3,10 @@
 display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #181616;
+    background-color:rgb(9, 55, 30);
 position: relative;
     padding: 10px;
-    height: 15vh;
+    height: 13vh;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
@@ -27,7 +27,7 @@ position: relative;
 }
 
 .shadow {
-    background-color: #0e0d0d;
+    background-color: rgb(9, 55, 30);
     display: flex;
     border-radius: 5px;
     width: 260px;

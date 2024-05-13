@@ -1,12 +1,13 @@
 .signup-container {
     position: fixed;
     top: 50%;
-    left: 50%;
+    left: 25%; /* Center the container in the left half of the viewport */
     transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.5); /* Transparent background color */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 80%; /* Adjust width as needed */
+    max-width: 400px; /* Maximum width */
   }
   
   .signup-form {
@@ -22,11 +23,12 @@
   .signup-input {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
     color: white; /* Text color */
-    border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.5); /* Transparent background */
-    border: 1px solid #ccc;
+    border: none;
+    border-bottom: 1px solid white; /* White line under the input */
+    background-color: transparent; /* Transparent background */
+    outline: none;
+    margin-bottom: 20px; /* Spacing between input fields */
   }
   
   .signup-checkbox {
@@ -37,17 +39,42 @@
     color: white; /* Text color */
   }
   
-  .signup-button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.5); /* Transparent background */
-    color: white; /* Button text color */
-    cursor: pointer;
+  .signup-butto {
+    height: 7vh;
+    width: 10vw;
+    border-radius: 2rem;
+    background-color: #F1A500;
+    text-decoration: none;
+    border: 2px solid rgb(244, 240, 240);
+    font-size: 1.7vw;
+    color: rgb(9, 55, 30);
+    font-weight: 700;
+    transition: transform 0.3s ease;
+    margin-left: 7vw;
+    display: flex;
+    align-self: center;
+    margin-top: 2vh;
+    text-align: center;
+    justify-content: center;
   }
   
-  .signup-button:hover {
-    background-color: #45a049; /* Hover color */
+  .signup-butto:hover {
+    background-color: #F1A500;
+    transform: scale(1.1);
   }
+  
+  .signup-error {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .signup-new-user,
+  .signup-new-user a {
+    color: white; /* Text color */
+  }
+
+
+
+
   

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./topHindi.css";
+import NavBar from "./NavBar";
+import FooterPanel from "./footerPanel";
 
 const IndiaTopSongs = () => {
   const [indiatopsongs, setSongs] = useState([]);
@@ -20,9 +22,15 @@ const IndiaTopSongs = () => {
   }, []);
 
   return (
+
+    <>
+    
     <div className="songs-container">
+    <NavBar></NavBar>
+    <FooterPanel></FooterPanel>
       {" "}
       {/* Wrap content in a container */}
+     
       <h1>Top 50 India</h1>
       <ol>
         {indiatopsongs.map((song) => (
@@ -34,6 +42,7 @@ const IndiaTopSongs = () => {
         ))}
       </ol>
     </div>
+    </>
   );
 };
 
