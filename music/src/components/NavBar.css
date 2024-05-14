@@ -1,0 +1,108 @@
+.main {
+    background-color: rgb(9, 55, 30);
+    width: 100vw;
+    height: 60px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    position: fixed;
+}
+
+.logo {
+    background-image: url('./assets/main-logo.jpg');
+    height: 57px;
+    width: 65px;
+    margin-left: 3vw;
+    background-size: cover;
+}
+
+.Log-img {
+    height: 65px;
+    width: 70px;
+    background-size: cover;
+    margin-left: 40px;
+    border-radius: 5px;
+}
+
+.nav-profile {
+    margin-left: 6vw;
+}
+
+.nav-home {
+    margin-left: 45px;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: transparent;
+    flex-grow: 1;
+    /* Allow container to grow */
+}
+
+.icon {
+    font-size: 24px;
+    color: white;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-left: 9vw;
+}
+
+.search-input {
+    background-color: rgb(9, 55, 30); /* Transparent dark green with 50% opacity */
+    color: #fff; /* Text color */
+    border: 1px solid #eaf2ea; /* Border color */
+    border-radius: 5px; /* Border radius */
+    /* Button padding */
+    padding: 0.3vw;
+    cursor: pointer; /* Cursor style */
+}
+
+.signup-btn,
+.login-btn {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.signup-btn:hover,
+.login-btn:hover {
+    color: #1DB954;
+}
+
+.login-btn {
+
+    margin-left: 30vw;
+
+}
+
+.signup-btn {
+    color: green;
+    margin-left: 6vw;
+
+}
+
+.Login a {
+    color: white;
+    font-size: larger;
+    text-decoration: none;
+}
+
+.Sign a {
+    color: white;
+    font-size: larger;
+    text-decoration: none;
+}
+
+.Profile a {
+    color:  rgb(9, 55, 30);
+    font-size: larger;
+    text-decoration: none;
+}

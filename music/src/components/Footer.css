@@ -1,0 +1,101 @@
+.playbar {
+
+display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color:rgb(9, 55, 30);
+position: relative;
+    padding: 10px;
+    height: 13vh;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+}
+
+.song-toggle {
+    margin-left: 10%;
+}
+
+.song-name {
+    background-image: url('./assets/Aashiqui-2-Hindi-2013-500x500.jpg');
+    height: 80px;
+    width: 80px;
+    margin-left: 5px;
+    display: flexbox;
+    background-size: cover;
+    background-color: bisque;
+}
+
+.shadow {
+    background-color: rgb(9, 55, 30);
+    display: flex;
+    border-radius: 5px;
+    width: 260px;
+}
+
+.emote {
+    height: 40px;
+    width: 40px;
+    background-size: cover;
+    display: flex;
+    background-image: url('./assets/equaliser-animated-green.f5eb96f2.gif');
+}
+
+.volume {
+    margin-left: 27%;
+}
+
+.next-button {
+    margin-left: 4vw;
+}
+
+.play-pause {
+    margin-left: 4vw;
+}
+
+.playbar-div {
+    display: flex;
+    justify-content: space-evenly;
+    width: 85%;
+}
+
+.playbar button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+.song-title {
+    padding: 5px;
+    padding-top: 8px;
+    color: antiquewhite;
+    margin-left: 0px;
+    display: flexbox;
+}
+
+navbar .playbar button:hover {
+    background-color: #ddd;
+}
+
+.playbar input[type="range"] {
+    width: 100px;
+    margin: 0 10px;
+}
+
+.playbar input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    background-color: #333;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.playbar input[type="range"]::-webkit-slider-thumb:hover {
+    background-color: #555;
+}

@@ -1,0 +1,29 @@
+.Home {
+    background-color:#235D3A;
+    position: static;
+}
+
+.homepage-container {
+    display: flex;
+
+    height: 100vh;
+}
+
+.sidebar-wrapper {
+    width: auto;
+}
+
+.main-bar-wrapper {
+    width: auto;
+}
+/* For Chrome, Edge, and Safari */
+::-webkit-scrollbar {
+    width: 5px; /* Set width of the scrollbar */
+    background-color: #677E61; /* Set background color of the scrollbar track */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #888; /* Set color of the scrollbar thumb */
+    border-radius: 5px; /* Round corners of the scrollbar thumb */
+  }
+  

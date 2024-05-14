@@ -1,0 +1,94 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: white;
+    /* Dark grey background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 20px;
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: #1DB954;
+    ;
+    /* Dark grey background color */
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.kuna {
+    padding: 30px;
+}
+
+h3 {
+    font-size: 24px;
+    text-align: center;
+    color: #fff;
+    /* White text color */
+    margin-bottom: 20px;
+}
+
+.input-field {
+    margin-bottom: 15px;
+}
+
+.input-field label {
+    color: #fff;
+    /* White label color */
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #fff;
+    /* White border */
+    border-radius: 5px;
+    background-color: transparent;
+    /* Transparent input background */
+    color: #fff;
+    /* White text color */
+}
+
+.checkbox-field {
+    margin-bottom: 15px;
+}
+
+.checkbox-field input {
+    margin-right: 10px;
+}
+
+.checkbox-field label {
+    font-size: 14px;
+    color: #fff;
+}
+
+.signup {
+    background-color: #fff;
+    color: #000;
+    /* Black text color */
+    font-weight: 700;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    display: block;
+}
+
+.signup:hover {
+    background-color: #00ff00;
+    /* Green background color on hover */
+    color: #fff;
+    /* White text color on hover */
+}

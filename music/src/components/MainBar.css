@@ -1,0 +1,135 @@
+.shop-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    gap: 11px;
+    background-color: #677E61;
+    padding: 10px;
+    position: fixed;    
+    top: 70px;
+    left: 270px;
+    margin-left: 0.7vw;
+    width: calc(100% - 300px); /* Adjust width for responsiveness */
+    max-height:calc(100% - 27vh) ; /* Set maximum height for the panel */
+    overflow-y:auto; /* Enable vertical scrolling */
+}
+
+.box {
+    width: calc(21% - 20px);
+    background-color:  rgb(9, 55, 30);
+    border-radius: 10px;
+        overflow: hidden;
+}
+
+.box-content {
+    padding: 8px;
+}
+
+.box-content a {
+    text-decoration: none;
+}
+
+.box-content p {
+    font-weight: 700;
+    text-decoration: none;
+    color: white;
+    margin-bottom: 10px;
+    font-size: 1.1vw; /* Adjust font size based on viewport width */
+}
+
+.box-img {
+    width: 100%;
+    height: 20vh; /* Set height as 20% of viewport height */
+}
+
+/* Background images for boxes */
+.box1 .box-img {
+    background-image: url('./assets/top50.jpg');
+    background-size: contain;
+}
+
+.box2 .box-img {
+    background-image: url('./assets/region_global_default.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.box3 .box-img {
+    background-image: url('./assets/Screenshot (33).png');
+    background-size: cover;
+}
+
+.box4 .box-img {
+    background-image: url('./assets/your-top-songs-2023_DEFAULT_en-GB.jpg');
+    background-size: contain;
+}
+
+.box5 .box-img {
+    background-image: url('./assets/db5aae3bd30023a9e378f17fd2e8527e_500x500.jpg');
+    background-size: contain;
+}
+
+.box6 .box-img {
+    background-image: url('./assets/ab67616d00001e020acb5a72549287bf33b51b71ab67616d00001e0249079e6945b600abe668cae4ab67616d00001e02707ea5b8023ac77d31756ed4ab67616d00001e02d567bc615d8d891d112c8a35.jpg');
+    background-size: contain;
+}
+
+.box7 .box-img {
+    background-image: url('./assets/ab67706c0000da84352d38f90224d692ada7c788.jpg');
+    background-size: cover;
+}
+
+.box8 .box-img {
+    background-image: url('./assets/istockphoto-896391820-612x612.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.box9 .box-img {
+    background-image: url('./assets/telgu.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.box10 .box-img {
+    background-image: url('./assets/istockphoto-896391820-612x612.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 1200px) {
+    .shop-section {
+        width: calc(100% - 200px); /* Adjust width for smaller screens */
+        left: 100px; /* Adjust left position for smaller screens */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .shop-section {
+        width: calc(100% - 20px); /* Adjust width for even smaller screens */
+        left: 10px; /* Adjust left position for even smaller screens */
+    }
+    .box {
+        width: calc(50% - 20px); /* Adjust box width for smaller screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .shop-section {
+        max-height: none; /* Remove max-height for very small screens */
+        height: auto; /* Allow height to adjust based on content */
+    }
+    .box {
+        width: calc(100% - 20px); /* Adjust box width for smallest screens */
+    }
+    .box-content p {
+        font-size: 14px; /* Adjust font size for smallest screens */
+    }
+    .box-img {
+        height: 150px; /* Adjust box image height for smallest screens */
+    }
+}

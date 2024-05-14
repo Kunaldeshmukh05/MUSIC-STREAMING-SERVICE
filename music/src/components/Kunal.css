@@ -1,0 +1,24 @@
+/* Kunal.css */
+.hindi-songs-container {
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 20px;
+}
+
+.hindi-songs-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.hindi-songs-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.hindi-songs-container li {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+}

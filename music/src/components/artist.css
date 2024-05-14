@@ -1,0 +1,46 @@
+.artist-list-container {
+    background-color: #121212;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.art {
+    background-color: #333333;
+    color: rgb(67, 158, 67);
+    text-align: center;
+    justify-content: center;
+    padding: 4px;
+    height: 9vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.artist-list-container h2 {
+    font-weight: 500;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.artist-list-container p {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.artist-list-container ol {
+    list-style: none;
+    padding: 0;
+}
+
+
+
+.artist-list-container li {
+    background-color: #212121;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.artist-list-container li:hover {
+    background-color: #333333;
+    /* Darker background color on hover */
+}

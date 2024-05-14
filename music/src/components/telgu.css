@@ -1,0 +1,37 @@
+.Telgu-container {
+    background-color: #121212;
+    /* Dark background color */
+    color: #fff;
+    /* Text color */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.Telgu-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.Telgu-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.Telgu-container li {
+    background-color: #212121;
+    /* Darker background color for each song */
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.Telgu-container h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.Telgu-container span {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+

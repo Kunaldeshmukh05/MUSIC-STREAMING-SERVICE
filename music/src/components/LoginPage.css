@@ -1,0 +1,84 @@
+.login-container {
+    position: fixed;
+    top: 50%;
+    left: 25%; /* Center the container in the left half of the viewport */
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 80%; /* Adjust width as needed */
+    max-width: 400px; /* Maximum width */
+  }
+  
+  .login-form {
+    padding: 20px;
+    border-radius: 10px;
+  }
+ 
+  .login-title {
+    color: white; /* Text color */
+    text-align: center;
+  }
+  
+  .login-input-field {
+    margin-bottom: 20px;
+  }
+  
+  .login-input-field input {
+    width: 100%;
+    padding: 10px;
+    color: white; /* Text color */
+    border: none;
+    border-bottom: 1px solid white; /* White line under the input */
+    background-color: transparent; /* Transparent background */
+    outline: none;
+  }
+  .box{color:white}
+  .login-button {
+    height: 7vh;
+    width: 9vw;
+    border-radius: 2rem;
+    background-color: #F1A500;
+    text-decoration: none;
+    justify-self: center;
+    border: 2px solid rgb(244, 240, 240);
+    font-size: 1.7vw;
+    color: rgb(9, 55, 30);
+    font-weight: 700;
+    transition: transform 0.3s ease;
+    margin-left: 7vw;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+  }
+  
+  .login-button:hover {
+    transform: scale(1.1);
+  }
+  
+  .login-error {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .login-checkbox-field {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .login-checkbox-field input {
+    margin-right: 10px;
+  }
+  
+  
+  .login-new-user  {
+  
+    margin-left: 6.5vw;
+    color: white; /* Text color */
+  }
+.S a{
+    text-decoration: none;
+    color:white ;
+    margin-left: 0.5vw;
+}
