@@ -12,7 +12,7 @@
     left: 270px;
     margin-left: 0.7vw;
     width: calc(100% - 300px); /* Adjust width for responsiveness */
-    max-height:calc(100% - 27vh) ;; /* Set maximum height for the panel */
+    max-height:calc(100% - 27vh) ; /* Set maximum height for the panel */
     overflow-y:auto; /* Enable vertical scrolling */
 }
 

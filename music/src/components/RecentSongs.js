@@ -20,10 +20,8 @@ const RecentSongs = () => {
   }, []);
 
   return (
-    <div className="container">
-      <h1>
-        <Link to="/recent">Songs</Link>
-      </h1>
+    <div className="recent-container">
+    
       <ul>
         {recentSongs.map((song) => (
           <li key={song._id}>

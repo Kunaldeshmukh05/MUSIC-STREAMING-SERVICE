@@ -1,15 +1,15 @@
 .sidebar-container {
     display: flex;
     flex-direction: column;
-    height: 60vh; /* Adjusted height using viewport height unit */
+    max-height: calc(100vh - 27vh); /* Adjusted height using viewport height unit */
     width: 20vw; /* Adjusted width using viewport width unit */
- /* Changed background color to transparent */
     border-radius: 10px;
     margin-right: 1vw; /* Adjusted margin using viewport width unit */
     margin-left: 0.6vw; /* Adjusted margin using viewport width unit */
     position: fixed;
     top: 70px;
-    background-color: #677E61;
+    background-color: #677e61;
+    overflow-y: scroll; /* Enable vertical scrolling */
 }
 
 .sidebar {

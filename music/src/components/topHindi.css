@@ -41,7 +41,7 @@ audio {
 }
 
 audio::-webkit-media-controls-panel {
-    background-color: #212121;
+    background-color: #ce7d7d;
     /* Darker background color for audio controls */
     color: #fff;
     /* Text color for audio controls */

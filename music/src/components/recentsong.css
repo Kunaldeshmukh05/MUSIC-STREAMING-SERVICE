@@ -1,19 +1,21 @@
-.liked-container{
+.recent-container{
     background-color: #235D3A;
     display: flex;
     width: 100%;
+    
     padding: 2vw;
 }
-
-.liked-container h1 a{
+.recent-container h1{
+    text-align: center;
+}
+.recent-container h1 a{
     color: white;
-    display: flex;
     text-decoration: none;
-  justify-content: center;
+  
     font-weight: 600;
 
 }
- .liked-container li{
+ .recent-container li{
     background-color: rgb(9, 55, 30);
     color:white;
  }

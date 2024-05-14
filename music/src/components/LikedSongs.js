@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./topHindi.css";
+import './likesong.css'
 import { Link } from "react-router-dom";
-import FooterPanel from "./footerPanel";
+
 const LikedSongs = () => {
   const [likedSongs, setLikedSongs] = useState([]);
 
@@ -21,20 +21,20 @@ const LikedSongs = () => {
   }, []);
 
   return (
-    <div className="container">
+    <div className="liked-container">
       {" "}
-      <FooterPanel></FooterPanel>
+
       <h1>
         <Link to="/LikedSongs">Liked Songs</Link>
       </h1>
-      <ul>
+      <ol>
         {likedSongs.map((song) => (
           <li key={song._id}>
             <h2>{song.title}</h2>
             <p>{song.artist}</p>
           </li>
         ))}
-      </ul>
+      </ol>
     </div>
   );
 };

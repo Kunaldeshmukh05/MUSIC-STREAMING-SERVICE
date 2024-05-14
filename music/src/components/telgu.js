@@ -31,16 +31,23 @@ const Telgu = () => {
   }
 
   return (
-    <>
+    <><div className="Telgu-container">
       <h2>Telgu Hits</h2>
       <div>
         <ul>
-          {songs.map((song, index) => (
-            <li key={index}>
-              {song.title} - {song.artist}
+          {songs.map((song) => (
+            <li key={song.id}>
+              <h2>{song.title}</h2>
+              <span>{song.artist}</span>
+              <span>{song.album}</span>
+              <span>{song.duration}</span>
+              <span>{song.genre}</span>
+              <span>{song.category}</span>
+
             </li>
           ))}
         </ul>
+      </div>
       </div>
     </>
   );
