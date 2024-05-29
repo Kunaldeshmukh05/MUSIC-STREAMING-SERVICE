@@ -5,14 +5,15 @@ import FooterPanel from "./footerPanel";
 import axios from "axios";
 import IndiaTopSongs from "./IndiaTopSongs"; // Import the IndiaTopSongs component
 
+
 const MainBar = () => {
-  const [indiatopSongs, setIndiaTopSongs] = useState([]); // State to store top Indian songs
+  const [indiaTopSongs, setIndiaTopSongs] = useState([]); // State to store top Indian songs
 
   useEffect(() => {
     const fetchIndiaTopSongs = async () => {
       try {
         const response = await axios.get("/indiatopsongs");
-        setIndiaTopSongs(response.data); // Set the fetched top Indian songs to state
+        setIndiaTopSongs(response.data); 
       } catch (error) {
         console.error("Error fetching top Indian songs:", error);
       }
@@ -27,6 +28,7 @@ const MainBar = () => {
      
         <div className="shop-section">
           <div className="box box1">
+          <IndiaTopSongs songs={indiaTopSongs} />
             <div className="box-img"></div>
             <div className="box-content">
               <Link to="/MainBar/IndiaTopSongs">

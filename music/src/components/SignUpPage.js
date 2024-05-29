@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
-import "./SignUpPage.css"; // Import CSS file
+import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import "./SignUpPage.css";
 import app from "./firebase";
-import Land from'./Land';
-import { useState } from "react";
+import Land from './Land';
+
 const auth = getAuth(app);
 
 function SignupUpPage() {
@@ -11,26 +14,33 @@ function SignupUpPage() {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const navigate = useNavigate();
 
+  const createUser = (e) => {
+    e.preventDefault();
+    if (password !== confirmPassword) {
+      toast.error("Passwords do not match");
+      return;
+    }
 
-  const createUser = () => {
-    createUserWithEmailAndPassword(
-      auth,
-      email,
-      username,
-      password,
-      confirmPassword,
-      
-    ).then((value) => alert("SignUp Successful"));
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((value) => {
+        toast.success("SignUp Successful");
+        setTimeout(() => {
+          navigate('/home'); // Replace with your target route
+        }, 2000); // Delay for the toast notification to show
+      })
+      .catch((error) => {
+        toast.error("SignUp Failed: " + error.message);
+      });
   };
 
   return (
     <>
-    <Land></Land>
+      <Land />
       <div className="signup-container">
         <div className="signup-form">
           <h3 className="signup-title">Signup Here</h3>
-
           <input
             onChange={(e) => setEmail(e.target.value)}
             type="email"
@@ -39,7 +49,6 @@ function SignupUpPage() {
             required
             placeholder="Enter your Email"
           />
-
           <input
             onChange={(e) => setUsername(e.target.value)}
             type="text"
@@ -49,7 +58,6 @@ function SignupUpPage() {
             placeholder="Username"
             required
           />
-
           <input
             onChange={(e) => setPassword(e.target.value)}
             type="password"
@@ -58,16 +66,14 @@ function SignupUpPage() {
             placeholder="Password"
             required
           />
-
           <input
             onChange={(e) => setConfirmPassword(e.target.value)}
-            type="confirmPassword"
+            type="password"
             value={confirmPassword}
             className="signup-input"
             placeholder="Confirm Password"
             required
           />
-
           <div>
             <button
               onClick={createUser}
@@ -79,30 +85,9 @@ function SignupUpPage() {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 }
 
 export default SignupUpPage;
-
-/* 
-  const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
-  });
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      // Send signup data to backend
-      await axios.post("http://localhost:3000/signup", formData);
-      alert("Signup successful!");
-    } catch (error) {
-      alert("Signup failed. Please try again.");
-    }
-  };*/

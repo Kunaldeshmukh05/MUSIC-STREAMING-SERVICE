@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
+import NavBar from "./NavBar";
 
 const Main = () => {
-  const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
-  const handleSearch = async () => {
+  const handleSearch = async (query) => {
     try {
-      const response = await axios.get(
-        `http://localhost:3000/api/search?query=${searchQuery}`
-      );
-      setSearchResults(response.data.tracks.items);
+      const response = await axios.get(`http://localhost:3000/api/search?query=${query}`);
+      setSearchResults(response.data.tracks); // Adjust based on your API response structure
     } catch (error) {
       console.error("Error searching tracks:", error);
     }
@@ -18,16 +16,11 @@ const Main = () => {
 
   return (
     <div>
-      <input
-        type="text"
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-      />
-      <button onClick={handleSearch}>Search</button>
-
+      <NavBar handleSearch={handleSearch} /> {/* Passing handleSearch function */}
+      
       <ul>
         {searchResults.map((track) => (
-          <li key={track.id}>{track.name}</li>
+          <li key={track._id}>{track.title} by {track.artist}</li> 
         ))}
       </ul>
     </div>

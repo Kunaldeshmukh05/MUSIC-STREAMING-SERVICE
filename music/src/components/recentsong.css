@@ -2,7 +2,6 @@
     background-color: #235D3A;
     display: flex;
     width: 100%;
-    
     padding: 2vw;
 }
 .recent-container h1{
@@ -11,11 +10,15 @@
 .recent-container h1 a{
     color: white;
     text-decoration: none;
-  
+  font-size: 1vh;
     font-weight: 600;
 
 }
  .recent-container li{
     background-color: rgb(9, 55, 30);
     color:white;
+ }
+
+ p {
+    font-size: 1vh;
  }

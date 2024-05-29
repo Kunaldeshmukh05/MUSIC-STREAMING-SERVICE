@@ -1,5 +1,4 @@
 import React from 'react';
-import './landingpages.css';
 
 const Land = () => {
   return (

@@ -44,7 +44,7 @@ const NavBar = ({ handleSearch }) => {
           <div className="nav-item">
             <button className="login-btn">
               <nav className="Login">
-                <Link to="/LoginPage">Login</Link>
+                <Link to="/LoginPage">SignIn</Link>
               </nav>
             </button>
           </div>

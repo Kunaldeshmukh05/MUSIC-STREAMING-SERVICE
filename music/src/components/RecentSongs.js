@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
 const RecentSongs = () => {
   const [recentSongs, setRecentSongs] = useState([]);
@@ -25,7 +24,7 @@ const RecentSongs = () => {
       <ul>
         {recentSongs.map((song) => (
           <li key={song._id}>
-            <h2>{song.title}</h2>
+            <p>{song.title}</p>
             <p>{song.artist}</p>
           </li>
         ))}
