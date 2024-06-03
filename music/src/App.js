@@ -18,18 +18,24 @@ import BollywoodPartySongs from "./components/BollywoodPartySongs";
 import GlobalPartySongs from "./components/GlobalPartySongs";
 import ArtistList from "./components/artist";
 import Telgu from "./components/telgu";
+import Search from './components/SearchAPI/SearchApi';
 import Landingpage from "./components/landingpage";
+import CreatePlaylist from "./components/playlist/createPlaylist";
+import UploadData from "./components/AddData/UploadData";
 const App = () => {
   return (
     <>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Landingpage/>}></Route>
+          <Route path="/SideBar/createPlaylist"element={<CreatePlaylist/>}></Route>
           <Route path="/MainBar/telgu" element={<Telgu />}></Route>
+          <Route path="/NavBar/SearchApi" element={<Search/>}></Route>
           <Route path="/SideBar/artist" element={<ArtistList />}></Route>
           <Route path="/MainBar/globalSongs" element={<GlobalSongs />}></Route>
           <Route path="/Home" element={<HomePage />}></Route>
           <Route path="/NavBar" element={<NavBar />}></Route>
+          <Route path="/SideBar/UploadData" element={<UploadData/>}></Route>
           <Route path="/LoginPage" element={<LoginPage />}></Route>
           <Route path="/SignUpPage" element={<SignUpPage />}></Route>
             <Route path="/profile" element={<Profile />}></Route> 
@@ -52,8 +58,7 @@ const App = () => {
             path="/MainBar/MarathiSongs"
             element={<MarathiSongs />}
           ></Route>
-          <Route
-            path="/MainBar/IndiaTopSongs"
+          <Route path="/MainBar/IndiaTopSongs"
             element={<IndiaTopSongs />}
           ></Route>
           <Route path="/SideBar/LikedSongs" element={<LikedSongs />}></Route>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { IoIosAddCircleOutline } from "react-icons/io";
 import "./SideBar.css";
 import { VscLibrary } from "react-icons/vsc";
 import { FaHeart } from "react-icons/fa";
@@ -38,6 +39,10 @@ const Sidebar = () => {
           </Link>
         </button>
 
+<button className="sbar-button10">
+  <Link to='/SideBar/createPlaylist'><IoIosAddCircleOutline />  Create Playlist</Link>
+</button>
+
         <hr></hr>
       </div>
 
@@ -46,7 +51,7 @@ const Sidebar = () => {
       
       {/* Button to toggle the visibility of the RecentSongs component */}
       <div className="sidebar-button-group">
-        <button className="sidebar-button2" onClick={toggleRecentSongs}>
+        <button className="sidebar-button2" onClick={ toggleRecentSongs }>
           Recent Songs
         </button>
       </div>

@@ -1,54 +1,40 @@
 const express = require("express");
-const app = express();
-const { MongoClient } = require("mongodb");
-const PORT = 3000;
-const client = new MongoClient("mongodb://127.0.0.1:27017/db");
-const cors = require("cors");
+const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const path = require("path"); // Require path module for resolving paths
+const multer = require("multer");
+const path = require("path");
+const Post = require('./models/post');
+const cors = require("cors");
+const app = express();
+const PORT = process.env.PORT || 3000;
+// Middleware setup
 app.use(cors());
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use("/audio", express.static(path.join(__dirname, "audio")));
 
-// Serve static audio files from the /audio endpoint
-app.use("/audio", express.static(path.join(__dirname, "audio"))); // Use path.join to ensure platform-independent path joining
-
-const db = client.db("db");
-
-async function connectToMongoDB() {
-  try {
-    await client.connect();
-    console.log("Connected to MongoDB");
-  } catch (error) {
-    console.error("Error connecting to MongoDB:", error);
-    process.exit(1); // Exit the process if unable to connect to MongoDB
+// Multer setup for file uploads
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'uploads/');
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + path.extname(file.originalname));
   }
-}
-
-// Error handling for MongoDB connection
-client.on("error", (err) => {
-  console.error("MongoDB connection error:", err);
-  process.exit(1); // Exit the process if there is a MongoDB connection error
 });
+const upload = multer({ storage });
 
-connectToMongoDB();
+// MongoDB setup (Mongoose)
+mongoose.connect('mongodb://localhost:27017/db', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(() => console.log('MongoDB connected'))
+  .catch(err => console.log(err));
 
-// Close MongoDB client when the server shuts down
-process.on("SIGINT", () => {
-  client.close();
-  console.log("MongoDB connection closed");
-  process.exit();
-});
-
-const trackSchema = {
-  title: String,
-  artist: String,
-  album: String,
-  duration: String,
-  coverImageUrl: String,
-  releaseDate: String,
-  genre: String,
-  category: String,
-};
+// MongoDB setup (MongoClient)
+const { MongoClient } = require("mongodb");
+const client = new MongoClient("mongodb://127.0.0.1:27017/db");
 
 const collectionNames = [
   "BollywoodParty",
@@ -59,16 +45,81 @@ const collectionNames = [
   "TelguHits",
   "GlobalSongs",
 ];
+
+async function connectToMongoDB() {
+  try {
+    await client.connect();
+    console.log("Connected to MongoDB");
+  } catch (error) {
+    console.error("Error connecting to MongoDB:", error);
+    process.exit(1);
+  }
+}
+
+client.on("error", (err) => {
+  console.error("MongoDB connection error:", err);
+  process.exit(1);
+});
+
+connectToMongoDB();
+
+process.on("SIGINT", () => {
+  client.close();
+  console.log("MongoDB connection closed");
+  process.exit();
+});
+
+// User schema
+const userSchema = new mongoose.Schema({
+  username: String,
+  fullName: String,
+  email: String,
+  password: String,
+  profilePicture: String,
+  playlists: [{
+    name: String,
+    songs: [String]
+  }]
+});
+
+
+//endpoint to add post
+app.post('/posts', upload.single('media'), async (req, res) => {
+  const { description } = req.body;
+  const media = req.file ? req.file.filename : null;
+
+  try {
+    const newPost = new Post({
+      description,
+      media,
+    });
+
+    await newPost.save();
+    res.status(201).json({ message: 'Post uploaded successfully', post: newPost });
+  } catch (error) {
+    console.error('Error uploading post', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Post endpoints
+app.get('/posts', async (req, res) => {
+  try {
+    const posts = await Post.find({});
+    res.json(posts);
+  } catch (error) {
+    res.status(500).json({ error: 'Error while fetching posts' });
+  }
+});
+
+// Song endpoints
 app.get("/song", async (req, res) => {
   try {
-    const collection = db.collection("HindiSongs");
-    const song = await collection.findOne({}); // Retrieve the first document
-
-    // Check if a song is found
+    const collection = client.db("db").collection("HindiSongs");
+    const song = await collection.find({}).toArray();
     if (song) {
       res.json(song);
     } else {
-      // If no song is found, return an appropriate error message
       res.status(404).json({ error: "No song found" });
     }
   } catch (error) {
@@ -86,7 +137,6 @@ app.get("/api/artists", async (req, res) => {
       artists = [...artists, ...distinctArtists];
     }
     const uniqueArtists = Array.from(new Set(artists));
-
     res.json(uniqueArtists);
   } catch (err) {
     console.error(err);
@@ -94,12 +144,10 @@ app.get("/api/artists", async (req, res) => {
   }
 });
 
-// Endpoint to get a song by title
 app.get("/songs/title/:songTitle", async (req, res) => {
   const songTitle = req.params.songTitle;
   try {
-    const db = client.db("db");
-    const collection = db.collection("HindiSongs");
+    const collection = client.db("db").collection("HindiSongs");
     const song = await collection.findOne({ title: songTitle });
     if (song) {
       res.json(song);
@@ -112,109 +160,32 @@ app.get("/songs/title/:songTitle", async (req, res) => {
   }
 });
 
-//Telgu songs
+// Additional endpoints for serving collections
+const collectionEndpoints = {
+  "telgu": "TelguHits",
+  "marathisongs": "MarathiSongs",
+  "bollywoodpartysongs": "BollywoodParty",
+  "globalpartysongs": "GlobalParty",
+  "indiatopsongs": "TopIndia",
+  "globalsongs": "GlobalSongs"
+};
 
-app.get("/telgu", async (req, res) => {
-  try {
-    const collection = db.collection("TelguHits");
-    const songs = await collection.find({}).toArray();
-    res.json(songs);
-  } catch (error) {
-    console.error("Error fetching Telgu hits:", error);
-    res.status(500).json({ message: "Internal server error" });
-  }
-});
-
-/*trying to get the songpath with url
-const path = require("path");
-
-app.get("/songs", async (req, res) => {
-  try {
-    const collection = db.collection("HindiSongs");
-    const songs = await collection.findOne({});
-
-    // Construct the file paths dynamically using Express's static middleware
-    const songsWithPath = songs.map((song) => {
-      return {
-        ...song,
-        filePath: `/audio/${song.audioPath}`, // Constructing the relative file path
-      };
-    });
-    res.json(songsWithPath);
-  } catch (error) {
-    console.error("Error fetching songs:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});
-*/
-//Marathi songs
-app.get("/marathisongs", async (req, res) => {
-  try {
-    const db = client.db("db");
-    const collection = db.collection("MarathiSongs");
-    const songs = await collection.find({}).toArray();
-    res.json(songs);
-  } catch (error) {
-    console.error("Error fetching songs:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});
-
-//Bollywood party songs
-
-app.get("/bollywoodpartysongs", async (req, res) => {
-  try {
-    const db = client.db("db");
-    const collection = db.collection("BollywoodParty");
-    const songs = await collection.find({}).toArray();
-    res.json(songs);
-  } catch (error) {
-    console.error("Error fetching songs:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});
-
-app.get("/globalpartysongs", async (req, res) => {
-  try {
-    const db = client.db("db");
-    const collection = db.collection("GlobalParty");
-    const songs = await collection.find({}).toArray();
-    res.json(songs);
-  } catch (error) {
-    console.error("Error fetching songs:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});
-
-//yop 50 india songs
-app.get("/indiatopsongs", async (req, res) => {
-  try {
-    const db = client.db("db");
-    const collection = db.collection("TopIndia");
-    const songs = await collection.find({}).toArray();
-    res.json(songs);
-  } catch (error) {
-    console.error("Error fetching songs:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});
-
-app.get("/globalsongs", async (req, res) => {
-  try {
-    const db = client.db("db");
-    const collection = db.collection("GlobalSongs");
-    const songs = await collection.find({}).toArray();
-    res.json(songs);
-  } catch (error) {
-    console.error("Error fetching songs:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
+Object.entries(collectionEndpoints).forEach(([endpoint, collectionName]) => {
+  app.get(`/${endpoint}`, async (req, res) => {
+    try {
+      const collection = client.db("db").collection(collectionName);
+      const songs = await collection.find({}).toArray();
+      res.json(songs);
+    } catch (error) {
+      console.error(`Error fetching songs from ${collectionName}:`, error);
+      res.status(500).json({ error: "Internal Server Error" });
+    }
+  });
 });
 
 app.get("/songs/liked", async (req, res) => {
   try {
-    const db = client.db("db");
-    const collection = db.collection("HindiSongs");
+    const collection = client.db("db").collection("HindiSongs");
     const likedSongs = await collection.find({ liked: true }).toArray();
     res.json(likedSongs);
   } catch (error) {
@@ -223,11 +194,9 @@ app.get("/songs/liked", async (req, res) => {
   }
 });
 
-// Endpoint to get recent songs
 app.get("/songs/recent", async (req, res) => {
   try {
-    const db = client.db("db");
-    const collection = db.collection("HindiSongs");
+    const collection = client.db("db").collection("HindiSongs");
     const recentSongs = await collection.find({ recent: true }).toArray();
     res.json(recentSongs);
   } catch (error) {
@@ -236,11 +205,9 @@ app.get("/songs/recent", async (req, res) => {
   }
 });
 
-// Endpoint to get top songs
 app.get("/songs/top", async (req, res) => {
   try {
-    const db = client.db("db");
-    const collection = db.collection("HindiSongs");
+    const collection = client.db("db").collection("HindiSongs");
     const topSongs = await collection.find({ top: true }).toArray();
     res.json(topSongs);
   } catch (error) {
@@ -249,47 +216,31 @@ app.get("/songs/top", async (req, res) => {
   }
 });
 
-
-app.get("/globalSongs", async (req, res) => {
-  try {
-    const db = client.db("db");
-    const collection = db.collection("GlobalSongs");
-    const documents = await collection.find({}).toArray();
-    res.send(documents);
-  } catch (error) {
-    console.error("Error while fetching data", error);
-    res.sendStatus(500).send("Internal Server Error");
-  }
-});
-
-
-
-
+// Search API
 app.get("/api/search", async (req, res) => {
   const query = req.query.query;
 
+  if (!query) {
+    return res.status(400).json({ error: "Query parameter is required" });
+  }
+
   try {
-    const db = client.db(); // Get the database
+    const db = client.db("db");
     const searchResults = [];
 
-    // Loop through each collection name and search for tracks
-    for (const collectionName of collectionNames) {
+    const searchPromises = collectionNames.map(async (collectionName) => {
       const collection = db.collection(collectionName);
+      const tracksInCollection = await collection.find({
+        $or: [
+          { title: { $regex: query, $options: "i" } },
+          { artist: { $regex: query, $options: "i" } },
+        ],
+      }).toArray();
+      return tracksInCollection;
+    });
 
-      // Search for tracks in the current collection
-      const tracksInCollection = await collection
-        .find({
-          $or: [
-            { title: { $regex: query, $options: "i" } },
-            { artist: { $regex: query, $options: "i" } },
-          ],
-        })
-        .toArray();
-
-      // Add the tracks found in this collection to the search results
-      searchResults.push(...tracksInCollection);
-    }
-
+    const results = await Promise.all(searchPromises);
+    results.forEach(tracks => searchResults.push(...tracks));
     res.json({ tracks: searchResults });
   } catch (error) {
     console.error("Error searching tracks:", error);
@@ -299,8 +250,6 @@ app.get("/api/search", async (req, res) => {
 
 
 
-
-
 app.listen(PORT, () => {
-  console.log(`Listening on ${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });

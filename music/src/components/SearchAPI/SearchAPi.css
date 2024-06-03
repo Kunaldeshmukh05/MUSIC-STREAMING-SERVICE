@@ -1,0 +1,60 @@
+/* Style the search bar and icon */
+.Sapi {
+    position: relative; /* Needed for icon positioning */
+  }
+  
+  .Sapi input {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 1vh;
+    width: 14vw; /* Stretch input to fill container */
+    font-size: 1rem; /* Adjust font size as needed */
+  }
+  
+  .Sapi .fa-magnifying-glass {
+    top: 50%;
+    transform: translateY(-50%); /* Center icon vertically */
+    right: 10px;
+    font-size: 1.5rem; /* Adjust icon size */
+    color: #999; /* Gray color for icon */
+  }
+  
+  /* Style the search button (assuming it inherits from button) */
+  .Sbut {
+    margin-left: 10px; /* Spacing between input and button */
+    border: none;
+    padding: 1vh;
+    border-radius: 5px;
+ /* Green color for button ;
+    color: white;
+    font-size: 1rem; /* Adjust font size as needed */
+    cursor: pointer;
+  }
+  
+  /* Style the results list */
+  ul {
+    list-style: none; /* Remove default bullet points */
+    padding: 0;
+    margin: 0;
+    display: none; /* Initially hide the list */
+  }
+  
+  .Sapi input:focus + ul {
+    display: block; /* Show list on input focus */
+    position: absolute;
+    top: 100%; /* Position list below input */
+    left: 0;
+    width: 100%;
+    background-color: #212529; /* Dark green background */
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Add subtle shadow */
+  }
+  
+  ul li {
+    color: white; /* White text color */
+    font-size: 2vh; /* Adjust font size based on viewport height */
+    padding: 5px 10px;
+    cursor: pointer; /* Make list items clickable */
+  }
+  

@@ -11,6 +11,23 @@
     background-color: #677e61;
     overflow-y: scroll; /* Enable vertical scrolling */
 }
+.sbar-button10{
+    border: none;
+    display: flex;
+    align-items: center; 
+    padding-left:1vw;
+    /* Adjusted margin using viewport width unit */
+    font-size: 1.2vw; /* Adjusted font size using viewport width unit */
+ background-color: #677E61;
+ margin-top: 1vh;
+    font-weight: bold;
+
+
+}
+.sbar-button10 a{
+    text-decoration: none;
+    color:white;
+}
 
 .sidebar {
     display: flex;
@@ -76,6 +93,7 @@
 
 .artist a {
     color: white;
+    text-decoration: none;
 }
 
 .sidebar-button a {

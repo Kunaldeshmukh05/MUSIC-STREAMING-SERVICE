@@ -1,6 +1,7 @@
 import React from 'react';
 import './FootPanel.css'
 const FooterPanel = () => {
+
   return (
     <div>
       <div className="foot-panel2">
@@ -69,3 +70,30 @@ const FooterPanel = () => {
 };
 
 export default FooterPanel;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
