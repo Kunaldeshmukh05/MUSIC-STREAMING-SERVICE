@@ -1,12 +1,16 @@
 .footer {
-    background-color:  rgb(9, 55, 30); /* Starbucks dark green color */
+    background-color:#677E61; /* Starbucks dark green color */
     color: white;
     padding-top: 5vh;
-
+margin: 0%;
+margin-top: 5vw;
     left: 270px; /* Adjust the left position relative to the parent component */
     width:100%;/* Adjust width for responsiveness */
 }
 
+.fluid{
+    background-color: #677E61;
+}
 .one,
 .two,
 .three,

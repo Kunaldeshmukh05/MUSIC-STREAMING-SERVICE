@@ -5,7 +5,6 @@ import './landingpages.css';
 const Landingpage = () => {
  
   
-
   return (
     <>
       <div className='Lmain'>

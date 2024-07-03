@@ -7,28 +7,27 @@ const Search = () => {
   const [results, setResults] = useState([]);
 
   const handleSearch = async () => {
+    console.log(`Searching for: ${query}`);
     try {
-      const response = await axios.get(`http://localhost:3000/api/search?query=${query}`);
+      const response = await axios.get(`/api/search?query=${query}`);
+      console.log('Search results:', response.data.tracks);
       setResults(response.data.tracks);
     } catch (error) {
       console.error("Error searching songs:", error);
-    
-    
     }
   };
 
   return (
-    <div >
-<span className='Sapi'>
-      <input 
-        type="text"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        placeholder="Search"
-      />
-</span>      
-      <button className="Sbut" onClick={handleSearch}>🔍
-</button>
+    <div>
+      <span className='Sapi'>
+        <input 
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Search"  
+        />
+      </span>      
+      <button className="Sbut" onClick={handleSearch}>🔍</button>
 
       <ul>
         {results.map((track, index) => (
@@ -36,11 +35,7 @@ const Search = () => {
         ))}
       </ul>
     </div>
-
   );
 };
 
 export default Search;
-
-
-

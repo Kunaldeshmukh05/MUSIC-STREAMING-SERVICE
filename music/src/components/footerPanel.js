@@ -1,8 +1,11 @@
 import React from 'react';
 import './FootPanel.css'
+
+import {Container} from 'react-bootstrap';
 const FooterPanel = () => {
 
   return (
+    <Container fluid className='fluid'>
     <div>
       <div className="foot-panel2">
         <div className='one'>
@@ -56,6 +59,7 @@ const FooterPanel = () => {
 
       <div className="horizontal-line"></div>
       <div className="foot-panel4">
+        <br></br>
         <div className="pages">
           <div>Conditions of use</div>
           <div>Privacy Notice</div>
@@ -64,8 +68,11 @@ const FooterPanel = () => {
         <div className="copyright">
           @ 2023,MUSIC STREAMING SERVICE , Inc. or its affiliates
         </div>
+        <br></br>
+        <br></br>
       </div>
     </div>
+    </Container>
   );
 };
 
