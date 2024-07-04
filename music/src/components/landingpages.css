@@ -8,6 +8,10 @@
     font-size: 1.7vw;
 }
 
+
+@media (max-width:600px){ 
+    
+}
 .Lsub1 {
     flex-direction: column;
     display: flex;

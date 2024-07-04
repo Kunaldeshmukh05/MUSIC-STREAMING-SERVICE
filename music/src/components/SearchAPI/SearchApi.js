@@ -30,9 +30,15 @@ const Search = () => {
       <button className="Sbut" onClick={handleSearch}>🔍</button>
 
       <ul>
-        {results.map((track, index) => (
-          <li key={index}>{track.title}</li>
-        ))}
+        {results && results.length > 0 ? (
+          results.map((track) => (
+            <li key={track._id}>
+              <strong>{track.title}</strong> by {track.artist}
+            </li>
+          ))
+        ) : (
+          <li>No results found</li>
+        )}
       </ul>
     </div>
   );
