@@ -2,31 +2,33 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const Top50 = () => {
-  const [song, setSong] = useState(null);
+  const [songs, setSongs] = useState([]);
 
   useEffect(() => {
-    const fetchSong = async () => {
+    const fetchSongs = async () => {
       try {
         const response = await axios.get("/song");
-        setSong(response.data);
+        setSongs(response.data);
       } catch (error) {
-        console.error("Error fetching song:", error);
+        console.error("Error fetching songs:", error);
       }
     };
 
-    fetchSong();
+    fetchSongs();
   }, []);
 
   return (
     <div>
-      {song ? (
-        <div>
-          <h2>{song.title}</h2>
-          <audio controls>
-            <source src={song.audioPath} type="audio/mp3" />
-            Your browser does not support the audio element.
-          </audio>
-        </div>
+      {songs.length > 0 ? (
+        songs.map((song) => (
+          <div key={song.id}>
+            <h2>{song.title}</h2>
+            <audio controls>
+              <source src={`${song.audioPath}`} type="audio/mp3" />
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+        ))
       ) : (
         <p>Loading...</p>
       )}

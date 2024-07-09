@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./MainBar.css";
 import FooterPanel from "./footerPanel";
+import Pop from './pop.js';
 import axios from "axios";
 import IndiaTopSongs from "./IndiaTopSongs"; // Import the IndiaTopSongs component
 
@@ -116,6 +117,7 @@ const MainBar = () => {
               </Link>
             </div>
           </div>
+          <Pop></Pop>
           <FooterPanel />
         </div>
         {showIndiaTopSongs && <IndiaTopSongs songs={indiaTopSongs} />} {/* Conditionally render IndiaTopSongs */}

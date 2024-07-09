@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
-
+import Navbar from './NavBar';
 import "./landingpages.css";
 
 const Landingpage = () => {
   return (
     <>
+    <Navbar></Navbar>
       <div className="Lmain">
         <div className="Lsub1">
           <div className="wel">

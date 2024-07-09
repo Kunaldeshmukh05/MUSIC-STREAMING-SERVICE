@@ -1,0 +1,9 @@
+.mus{
+    height: 40vh;
+    width:auto;
+    border-radius: 5vh;
+    background-image: url('./assets/mus.jpg');
+    background-position: center;
+    background-size:cover;
+}
+    
