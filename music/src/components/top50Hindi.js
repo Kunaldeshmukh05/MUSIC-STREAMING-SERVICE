@@ -10,6 +10,7 @@ const Top50 = () => {
         const response = await axios.get("/song");
         setSongs(response.data);
       } catch (error) {
+        console.log("Error while connecting")
         console.error("Error fetching songs:", error);
       }
     };

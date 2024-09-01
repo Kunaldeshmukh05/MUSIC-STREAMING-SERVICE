@@ -7,7 +7,7 @@
     gap: 11px;
     background-color: #677E61;
     padding: 10px;
-    position: fixed;    
+    position:fixed;    
     top: 70px;
     left: 270px;
     margin-left: 0.7vw;
@@ -29,6 +29,9 @@
 
 .box-content a {
     text-decoration: none;
+    font-size: .9rem;
+    color:white;
+    font-weight: bold;
 }
 
 .box-content p {

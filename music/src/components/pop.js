@@ -3,7 +3,9 @@ import './mus.css'
 import { Container, Card ,Button} from 'react-bootstrap';
 const Pop = () => {
 
-
+    useEffect=()=>{
+        
+    }
 
   return (
 <Container fluid>
@@ -11,7 +13,6 @@ const Pop = () => {
       <Card.Img  className="mus" />
 
         <Button variant="outline"style={{color:'white'}} >Explore The Collection...</Button>
-      
     </Card>
 </Container>
   )

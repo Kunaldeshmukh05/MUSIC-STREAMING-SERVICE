@@ -4,6 +4,7 @@ import { IoIosAddCircleOutline } from "react-icons/io";
 import "./SideBar.css";
 import { VscLibrary } from "react-icons/vsc";
 import { FaHeart } from "react-icons/fa";
+import { Button } from "react-bootstrap";
 import { MdManageAccounts } from "react-icons/md";
 import RecentSongs from "./RecentSongs"; // Import RecentSongs component
 
@@ -16,7 +17,7 @@ const Sidebar = () => {
 
   return (
     <div className="sidebar-container">
-      <div className="sidebar" style={{ height: "auto", width: "auto" }}>
+      <div className="sidebar" style={{ height: "70vh", width: "auto" }}>
         <div className="sidebar-buttons">
           <button className="sidebar-button">
             <Link to="/SideBar/RecentSongs">
@@ -51,9 +52,9 @@ const Sidebar = () => {
       
       {/* Button to toggle the visibility of the RecentSongs component */}
       <div className="sidebar-button-group">
-        <button className="sidebar-button2" onClick={ toggleRecentSongs }>
+        <Button  variant="outline" className="sidebar-button2" onClick={ toggleRecentSongs }>
           Recent Songs
-        </button>
+        </Button>
       </div>
     </div>
   );

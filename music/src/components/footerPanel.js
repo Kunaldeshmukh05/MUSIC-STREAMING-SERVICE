@@ -6,7 +6,7 @@ const FooterPanel = () => {
 
   return (
     <Container fluid className='fluid'>
-    <div>
+    <div className='footer'>
       <div className="foot-panel2">
         <div className='one'>
           <div className='foot-head'>Get to Know Us</div>

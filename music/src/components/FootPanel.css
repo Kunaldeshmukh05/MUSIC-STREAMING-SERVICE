@@ -1,82 +1,76 @@
 .footer {
-    background-color:#677E61; /* Starbucks dark green color */
-    color: white;
-    padding-top: 5vh;
-margin: 0%;
-margin-top: 5vw;
-    left: 270px; /* Adjust the left position relative to the parent component */
-    width:100%;/* Adjust width for responsiveness */
-}
-
-.fluid{
-    background-color: #677E61;
+  background-color: #677e61; /* Starbucks dark green color */
+  color: white;
+  font-size:1rem;
+  margin-top: 1vw;
+  left: 270px; /* Adjust the left position relative to the parent component */
+  width: auto; /* Adjust width for responsiveness */
 }
 .one,
 .two,
 .three,
 .four {
-    flex: 1;
-    padding: 10px; /* Add padding to each column */
+  flex: 1;
+  padding: 10px; /* Add padding to each column */
 }
 
-
 .one {
-    margin-left: 4vw;
+  margin-left: 4vw;
 }
 
 .foot-panel2 {
-    display: flex;
-    background-color:  rgb(9, 55, 30);
-    color: white;
-    height: 300px;
-    width: 100%; /* Take full width */
+  display: flex;
+  background-color: rgb(9, 55, 30);
+  color: white;
+  height: 300px;
+  width: 100%; /* Take full width */
 }
 
 .horizontal-line {
-    width: 100%;
-    height: 1px;
-    background-color: white;
+  width: 100%;
+  height: 1px;
+  background-color: white;
 }
 
 .foot-head {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 .pages a {
-    font-size: 0.6rem;
+  font-size: 0.6rem;
 }
 
 .foot-panel4 {
-    background-color: rgb(9, 55, 30);
-    color: white;
-    height: 80px;
-    font-size: 0.5rem;
-    padding: 2px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%; /* Take full width */
+  background-color: rgb(9, 55, 30);
+  color: white;
+  height: 80px;
+  font-size: 0.5rem;
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* Take full width */
 }
 
 .pages {
-    font-size: 0.6rem;
-    text-align: center;
-    padding-top: 10px; /* Adjust top padding */
+  font-size: 0.6rem;
+  text-align: center;
+  padding-top: 10px; /* Adjust top padding */
 }
 
 .copyright {
-    font-size: 0.8rem;
-    text-align: center;
-    padding-top: 10px; /* Adjust top padding */
+  font-size: 0.8rem;
+  text-align: center;
+  padding-top: 10px; /* Adjust top padding */
 }
 
 .sub-a,
 .sub-b,
 .sub-3,
 .sub-4 {
-    background-size: cover;
-    display: flex;
-    height: 50%;
-    width: 100%; /* Set width to 100% */
+  background-size: cover;
+  display: flex;
+  height: 50%;
+  width: 100%; /* Set width to 100% */
 }

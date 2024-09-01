@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faUser } from "@fortawesome/free-solid-svg-icons";
 import "./NavBar.css";
-import Search from "./SearchAPI/SearchApi"
+import SearchSongs from "./SearchAPI/searchSongs";
 const NavBar = () => {
   
   return (
@@ -16,7 +16,7 @@ const NavBar = () => {
           <div className="Log-img"></div>
           <div className="Log-im"></div>
           <div className="nav-item search-container">
-          <Search></Search>
+          <SearchSongs/>
           </div>
           <div className="nav-item">
             <button className="login-btn">
@@ -49,5 +49,4 @@ const NavBar = () => {
     </div>
   );
 };
-
-export default NavBar;
+export default NavBar;  
